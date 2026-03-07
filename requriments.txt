@@ -1,0 +1,8 @@
+openai
+networkx
+spacy
+nltk
+bs4
+yaml
+cloudscraper
+playwright
