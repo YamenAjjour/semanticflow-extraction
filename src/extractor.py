@@ -28,11 +28,23 @@ def extract_modules(soup):
 
 
 def extract_lessons(page, url, modules):
-
+    """
+    Extracts lessons from each module by navigating to the module page.
+    
+    Args:
+        page (playwright.sync_api.Page): The Playwright page object.
+        url (str): The base URL of the course.
+        modules (list): A list of module dictionaries containing module_id and title.
+        
+    Returns:
+        tuple: A tuple containing:
+            - processed_modules (list): List of modules with extracted lessons.
+            - cross_scale_links (list): List of relationships between lessons and modules.
+    """
     processed_modules = []
     cross_scale_links = []
 
-    modules_count = len(modules)
+
     for i, module_data in enumerate(modules, start=1):
         module_id = module_data["module_id"]
         module_title = module_data["title"]
