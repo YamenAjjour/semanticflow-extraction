@@ -1,10 +1,11 @@
-import nltk
+
 from bs4 import BeautifulSoup
 import json
 import time
 import random
 import yaml
 import os
+import re
 from argparse import ArgumentParser
 from playwright.sync_api import sync_playwright
 
@@ -26,6 +27,30 @@ def extract_modules(soup):
                 
     return modules
 
+def clean_title(text):
+    """
+    Removes unwanted metadata from lesson item titles.
+    Examples of text to remove:
+    - "Due, Mar 15, 11:59 PM CET"
+    - "Graded Assignment"
+    - "• Duration: 30 minutes"
+    - "30 min"
+    - "• Grade: --"
+    """
+    # Remove "Due, [Date], [Time]" pattern
+    text = re.sub(r"Due, [A-Za-z]{3} \d{1,2}, \d{1,2}:\d{2} [AP]M [A-Z]{3}", "", text)
+
+    text = text.replace("Graded Assignment", "")
+
+    text = re.sub(r". Duration:\s*\d+\s*minutes\s*\d+\s*min", "", text)
+    text = re.sub(r"\d+ min", "", text)
+    text = re.sub(r"Grade: --", "", text)
+    
+    # Remove bullet points and extra whitespace
+    text = text.replace("•", "")
+    text = re.sub(r"\s+", " ", text).strip()
+    
+    return text
 
 def extract_lessons(page, url, modules):
     """
@@ -89,13 +114,20 @@ def extract_lessons(page, url, modules):
                                 if link.startswith("/"):
                                     link = f"https://www.coursera.org{link}"
                                 text = a.get_text(" ", strip=True)
-
-                                if "Video" in text:
-                                   videos.append((text, link))
-                                elif "Quiz" in text or "Assignment" in text:
-                                   quizzes.append((text, link))
+                                
+                                # Determine type before cleaning
+                                is_video = "Video" in text
+                                is_quiz = "Quiz" in text or "Assignment" in text
+                                
+                                # Clean the text
+                                clean_text = clean_title(text)
+                                
+                                if is_video:
+                                   videos.append((clean_text, link))
+                                elif is_quiz:
+                                   quizzes.append((clean_text, link))
                                 else:
-                                   readings.append((text, link))
+                                   readings.append((clean_text, link))
 
                     module_obj["lessons"].append({
                         "lesson_id": lesson_id,

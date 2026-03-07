@@ -3,6 +3,6 @@ networkx
 spacy
 nltk
 bs4
-yaml
+pyyaml
 cloudscraper
 playwright
