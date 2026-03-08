@@ -6,3 +6,4 @@ bs4
 pyyaml
 cloudscraper
 playwright
+dotenv

@@ -1,0 +1,60 @@
+{
+  "extract_concept": {
+    "system_prompt" : [
+      "You are a teacher in the following domain {domain}."
+    ],
+    "user_prompt" : [
+      "Extract the main concepts from the following document that the student is expected to learn.",
+      "Document: {document}"
+    ],
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "concepts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["concepts"],
+      "additionalProperties": false
+    }
+  },
+
+  "extract_prerequisites":{
+    "system_prompt" : [
+      "You are a teacher in the following domain {domain}."
+    ],
+    "user_prompt" : [
+      "Extract the main prerequisite relations between the following concepts as implied in the following document.",
+      "A prerequisite is a directed relation that goes from concept a to concept b that implies",
+      "The student has to learn concept a before learning concept b.",
+      "Document: {document}",
+      "Concpets: {concepts}"
+    ],
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "prerequisites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              }
+            },
+            "required": ["source", "target"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["prerequisites"],
+      "additionalProperties": false
+    }
+  }
+}

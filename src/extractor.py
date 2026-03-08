@@ -7,7 +7,10 @@ import yaml
 import os
 import re
 from argparse import ArgumentParser
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, TimeoutError
+
+from llm_client import LLMClient
+
 
 def extract_modules(soup):
     """
@@ -30,12 +33,6 @@ def extract_modules(soup):
 def clean_title(text):
     """
     Removes unwanted metadata from lesson item titles.
-    Examples of text to remove:
-    - "Due, Mar 15, 11:59 PM CET"
-    - "Graded Assignment"
-    - "• Duration: 30 minutes"
-    - "30 min"
-    - "• Grade: --"
     """
     # Remove "Due, [Date], [Time]" pattern
     text = re.sub(r"Due, [A-Za-z]{3} \d{1,2}, \d{1,2}:\d{2} [AP]M [A-Z]{3}", "", text)
@@ -53,15 +50,50 @@ def clean_title(text):
         text = text[:-5].strip()
     return text
 
+def extract_page_content(page, url, item_type):
+    """
+    Visits the item URL and extracts content (transcript for video, text for reading).
+    """
+    print(f"Visiting {item_type}: {url}")
+    try:
+        page.goto(url, wait_until="networkidle", timeout=420000)
+        time.sleep(random.randint(1,5)) # Wait for rendering
+        
+        if item_type == "video":
+            # Attempt to extract transcript
+            # Looking for a div that likely contains the transcript
+            transcript = page.query_selector("div[class*='rc-Transcript']")
+            if transcript:
+                return transcript.inner_text()
+            return "Transcript not found"
+            
+        elif item_type == "reading":
+            # Attempt to extract reading text
+            # Looking for a div that likely contains the reading content
+            content = page.query_selector("div[class*='rc-ReadingItem']")
+            if not content:
+                content = page.query_selector("div[class*='CmlItem']")
+            if content:
+                return content.inner_text()
+            return "Reading content not found"
+            
+    except TimeoutError:
+        print(f"Timeout visiting {url}")
+        return None
+    except Exception as e:
+        print(f"Error visiting {url}: {e}")
+        return None
+    return None
+
 def extract_lessons(page, url, modules):
     """
     Extracts lessons from each module by navigating to the module page.
-    
+
     Args:
         page (playwright.sync_api.Page): The Playwright page object.
         url (str): The base URL of the course.
         modules (list): A list of module dictionaries containing module_id and title.
-        
+
     Returns:
         tuple: A tuple containing:
             - processed_modules (list): List of modules with extracted lessons.
@@ -85,7 +117,7 @@ def extract_lessons(page, url, modules):
         }
         
         try:
-            page.goto(module_url, wait_until="networkidle")
+            page.goto(module_url, wait_until="networkidle", timeout=30000)
             content = page.content()
             soup = BeautifulSoup(content, 'html.parser')
             
@@ -120,14 +152,16 @@ def extract_lessons(page, url, modules):
                                 is_quiz = "Quiz" in text or "Assignment" in text
                                 
                                 # Clean the text
-                                clean_text = clean_title(text)
+                                cleaned_title = clean_title(text)
                                 
                                 if is_video:
-                                   items.append((clean_text, "video", link))
+                                   content = extract_page_content(page, link, "video")
+                                   items.append((cleaned_title, "video", content))
                                 elif is_quiz:
-                                   items.append((clean_text, "quiz", link))
+                                   items.append((cleaned_title, "quiz", link))
                                 else:
-                                   items.append((clean_text, "reading", link))
+                                    content = extract_page_content(page, link, "reading")
+                                    items.append((cleaned_title, "reading", content))
 
                     module_obj["lessons"].append({
                         "lesson_id": lesson_id,
@@ -145,6 +179,8 @@ def extract_lessons(page, url, modules):
             else:
                 print(f"No lessons found for module {i}")
 
+        except TimeoutError:
+            print(f"Timeout processing module {i}")
         except Exception as e:
             print(f"Error processing module {i}: {e}")
             
@@ -155,13 +191,9 @@ def extract_lessons(page, url, modules):
 def crawl_coursera_course(url, path=None, domain="unknown", cookies=None ):
     """
     Crawls a Coursera course URL to extract modules, lessons, and items.
-
-    Args:
-        url (str): The URL of the course home page.
-        cookies (dict): Cookies for authentication (required for quizzes/transcripts).
     """
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True) # Set headless=True for background execution
+        browser = p.chromium.launch(headless=False) # Set headless=False to see the browser
         context = browser.new_context()
 
         if cookies:
@@ -176,7 +208,11 @@ def crawl_coursera_course(url, path=None, domain="unknown", cookies=None ):
                 context.add_cookies(cookies)
 
         page = context.new_page()
-        page.goto(url, wait_until="networkidle")
+        try:
+            page.goto(url, wait_until="networkidle", timeout=30000)
+        except TimeoutError:
+            print(f"Timeout loading course page: {url}")
+            # Continue anyway, maybe content loaded partially
         
         content = page.content()
         soup = BeautifulSoup(content, 'html.parser')
@@ -216,6 +252,8 @@ def crawl_coursera_course(url, path=None, domain="unknown", cookies=None ):
 
         processed_modules, links = extract_lessons(page, base_url, initial_modules)
         
+        # Extract content for each item
+
         course_data["modules"] = processed_modules
         course_data["cross_scale_links"] = links
 
@@ -232,6 +270,80 @@ def crawl_coursera_course(url, path=None, domain="unknown", cookies=None ):
         return course_data
 
 
+def load_prompts():
+    prompts_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "prompts.json")
+    if os.path.exists(prompts_path):
+        with open(prompts_path, 'r') as f:
+            return json.load(f)
+    return {}
+
+
+def extract_semantic_flows(course_data, domain="unknown"):
+    client = LLMClient()
+    prompts = load_prompts()
+    
+    nodes = []
+    edges = []
+    node_id_counter = 1
+    node_map = {} # Map concept text to node ID
+
+    for module in course_data["modules"]:
+        for lesson in module["lessons"]:
+            for item in lesson["items"]:
+                if item[1] == "reading" or item[1] == "video":
+                    content = item[2]
+                    # Extract concepts
+                    concepts_response = client.prompt(
+                        "gpt-4-turbo", 
+                        prompts["extract_concept"], 
+                        {"document": content, "domain": domain},
+                        constraints=prompts["extract_concept"].get("constraints")
+                    )
+                    
+                    concepts = concepts_response.get("concepts", []) if concepts_response else []
+                    
+                    # Extract prerequisites
+                    prerequisites_response = client.prompt(
+                        "gpt-4-turbo", 
+                        prompts["extract_prerequisites"], 
+                        {"document": content, "domain": domain, "concepts": ", ".join(concepts)},
+                        constraints=prompts["extract_prerequisites"].get("constraints")
+                    )
+                    
+                    prerequisites = prerequisites_response.get("prerequisites", []) if prerequisites_response else []
+                    
+                    # Process concepts into nodes
+                    for concept in concepts:
+                        if concept not in node_map:
+                            node_id = f"n{node_id_counter}"
+                            node_id_counter += 1
+                            node_map[concept] = node_id
+                            
+                            nodes.append({
+                                "id": node_id,
+                                "text": concept,
+                                "type": "Concept",
+                                "difficulty": "medium" # Default difficulty
+                            })
+                    lesson["nodes"] = nodes
+                    # Process prerequisites into edges
+                    for prereq in prerequisites:
+                        source_text = prereq.get("source")
+                        target_text = prereq.get("target")
+                        
+                        if source_text in node_map and target_text in node_map:
+                            source_id = node_map[source_text]
+                            target_id = node_map[target_text]
+                            
+                            edges.append({
+                                "source": source_id,
+                                "target": target_id,
+                                "type": "PREREQUISITE_FOR",
+                                "confidence": 0.92 # Default confidence
+                            })
+                            
+                    lesson["edges"] = edges
+    return course_data
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--url", type=str, required=True)
@@ -257,5 +369,14 @@ if __name__ == "__main__":
             print(f"Error reading config file: {e}")
     else:
         print("No config.yaml found.")
-
-    crawl_coursera_course(args.url, args.data, domain=args.domain or "unknown", cookies=cookies)
+    crawled_course_path = args.data.replace(".json", "crawled.json")
+    if not os.path.exists(crawled_course_path):
+        course_data = crawl_coursera_course(args.url, args.data, domain=args.domain or "unknown", cookies=cookies)
+    else:
+        course_data = json.load(open(crawled_course_path, 'r'))
+        
+    semantic_flow = extract_semantic_flows(course_data, domain=args.domain or "unknown")
+    
+    with open(args.data, 'w', encoding='utf-8') as f:
+        json.dump(semantic_flow, f, indent=2)
+    print(f"Saved semantic flow to {args.data}")
