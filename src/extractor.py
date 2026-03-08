@@ -49,7 +49,8 @@ def clean_title(text):
     # Remove bullet points and extra whitespace
     text = text.replace("•", "")
     text = re.sub(r"\s+", " ", text).strip()
-    
+    if text.endswith("Video") and len(text) > 5:
+        text = text[:-5].strip()
     return text
 
 def extract_lessons(page, url, modules):
@@ -90,7 +91,8 @@ def extract_lessons(page, url, modules):
             
             # Find all divs with class rc-ItemGroupLesson
             lesson_groups = soup.find_all("div", class_="rc-ItemGroupLesson")
-            
+            if not lesson_groups:
+                lesson_groups = soup.find_all("div", class_="rc-ModuleSection")
             if lesson_groups:
                 for l_idx, group in enumerate(lesson_groups, start=1):
                     # Find lesson title in nested h2
@@ -99,10 +101,8 @@ def extract_lessons(page, url, modules):
                     if "1 graded assessment left" in lesson_title:
                         lesson_title = lesson_title.replace("1 graded assessment left", "")
                     lesson_id = f"{module_id}-l{l_idx}"
-                    videos = []
-                    readings = []
-                    quizzes = []
-                    
+                    items = []
+
                     # Find ul within this group
                     ul = group.find("ul")
                     if ul:
@@ -123,19 +123,17 @@ def extract_lessons(page, url, modules):
                                 clean_text = clean_title(text)
                                 
                                 if is_video:
-                                   videos.append((clean_text, link))
+                                   items.append((clean_text, "video", link))
                                 elif is_quiz:
-                                   quizzes.append((clean_text, link))
+                                   items.append((clean_text, "quiz", link))
                                 else:
-                                   readings.append((clean_text, link))
+                                   items.append((clean_text, "reading", link))
 
                     module_obj["lessons"].append({
                         "lesson_id": lesson_id,
                         "title": lesson_title,
                         "scale": "lesson",
-                        "videos": videos,
-                        "quizzes": quizzes,
-                        "readings": readings
+                        "items": items
                     })
                         
                     cross_scale_links.append({

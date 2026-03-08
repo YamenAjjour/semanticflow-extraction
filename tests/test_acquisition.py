@@ -43,7 +43,7 @@ class TestAcquisition(unittest.TestCase):
         lessons_count = 0
         for module in results["modules"]:
             lessons_count += len(module["lessons"])
-        self.assertEqual(lessons_count, 10)
+        self.assertEqual(lessons_count, 11)
         last_modules_lessons = [lesson_item["title"] for lesson_item in results["modules"][-1]["lessons"]]
         self.assertIn("Orders of Growth", last_modules_lessons)
 if __name__ == '__main__':
