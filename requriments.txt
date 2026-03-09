@@ -7,3 +7,5 @@ pyyaml
 cloudscraper
 playwright
 dotenv
+pandas
+tiktoken

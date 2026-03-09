@@ -38,7 +38,7 @@ def clean_title(text):
     text = re.sub(r"Due, [A-Za-z]{3} \d{1,2}, \d{1,2}:\d{2} [AP]M [A-Z]{3}", "", text)
 
     text = text.replace("Graded Assignment", "")
-
+    text = text.replace( "Video Resume . Click to resume", "")
     text = re.sub(r". Duration:\s*\d+\s*minutes\s*\d+\s*min", "", text)
     text = re.sub(r"\d+ min", "", text)
     text = re.sub(r"Grade: --", "", text)
@@ -289,47 +289,54 @@ def extract_semantic_flows(course_data, domain="unknown"):
 
     for module in course_data["modules"]:
         for lesson in module["lessons"]:
-            for item in lesson["items"]:
+            for item_idx, item in enumerate(lesson["items"]):
                 if item[1] == "reading" or item[1] == "video":
                     content = item[2]
+                    item_title = item[0]
+                    item_type = item[1]
+                    
                     # Extract concepts
                     concepts_response = client.prompt(
-                        "gpt-4-turbo", 
+                        "gpt-4o",
                         prompts["extract_concept"], 
-                        {"document": content, "domain": domain},
-                        constraints=prompts["extract_concept"].get("constraints")
+                        {"document": content, "domain": domain}
                     )
                     
                     concepts = concepts_response.get("concepts", []) if concepts_response else []
+                    concept_literals = [c["concept"] for c in concepts if c.get("concept")]
                     
                     # Extract prerequisites
                     prerequisites_response = client.prompt(
-                        "gpt-4-turbo", 
+                        "gpt-4o",
                         prompts["extract_prerequisites"], 
-                        {"document": content, "domain": domain, "concepts": ", ".join(concepts)},
-                        constraints=prompts["extract_prerequisites"].get("constraints")
+                        {"document": content, "domain": domain, "concepts": ", ".join(concept_literals)}
                     )
                     
                     prerequisites = prerequisites_response.get("prerequisites", []) if prerequisites_response else []
                     
                     # Process concepts into nodes
-                    for concept in concepts:
-                        if concept not in node_map:
+                    for concept_obj in concepts:
+                        concept_text = concept_obj.get("concept")
+                        difficulty = concept_obj.get("difficulty")
+                        
+                        if concept_text and concept_text not in node_map:
                             node_id = f"n{node_id_counter}"
                             node_id_counter += 1
-                            node_map[concept] = node_id
+                            node_map[concept_text] = node_id
                             
                             nodes.append({
                                 "id": node_id,
-                                "text": concept,
+                                "text": concept_text,
                                 "type": "Concept",
-                                "difficulty": "medium" # Default difficulty
+                                "difficulty": difficulty,
+                                "lesson_item_id": f"{lesson['lesson_id']}-{item_type}-{item_title}-{item_idx}",
                             })
                     lesson["nodes"] = nodes
                     # Process prerequisites into edges
                     for prereq in prerequisites:
                         source_text = prereq.get("source")
                         target_text = prereq.get("target")
+                        confidence = prereq.get("confidence")
                         
                         if source_text in node_map and target_text in node_map:
                             source_id = node_map[source_text]
@@ -339,7 +346,7 @@ def extract_semantic_flows(course_data, domain="unknown"):
                                 "source": source_id,
                                 "target": target_id,
                                 "type": "PREREQUISITE_FOR",
-                                "confidence": 0.92 # Default confidence
+                                "confidence": confidence
                             })
                             
                     lesson["edges"] = edges
@@ -369,9 +376,9 @@ if __name__ == "__main__":
             print(f"Error reading config file: {e}")
     else:
         print("No config.yaml found.")
-    crawled_course_path = args.data.replace(".json", "crawled.json")
+    crawled_course_path = args.data.replace(".json", "_crawled.json")
     if not os.path.exists(crawled_course_path):
-        course_data = crawl_coursera_course(args.url, args.data, domain=args.domain or "unknown", cookies=cookies)
+        course_data = crawl_coursera_course(args.url, crawled_course_path, domain=args.domain or "unknown", cookies=cookies)
     else:
         course_data = json.load(open(crawled_course_path, 'r'))
         

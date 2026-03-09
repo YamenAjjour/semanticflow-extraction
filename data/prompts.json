@@ -5,6 +5,9 @@
     ],
     "user_prompt" : [
       "Extract the main concepts from the following document that the student is expected to learn.",
+      "A concept is a single entity that is ideally a noun phrase or that stands on its own as an object of study",
+      "In addition to the concept, classify the difficulty of the concept into low, medium, and high.",
+      "Return the concepts in a title case capitalized style in a singular form.",
       "Document: {document}"
     ],
     "constraints": {
@@ -13,7 +16,18 @@
         "concepts": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "concept": {
+                "type": "string"
+              },
+              "difficulty": {
+                "type": "string",
+                "enum": ["low", "medium", "high"]
+              }
+            },
+            "required": ["concept", "difficulty"],
+            "additionalProperties": false
           }
         }
       },
@@ -30,6 +44,7 @@
       "Extract the main prerequisite relations between the following concepts as implied in the following document.",
       "A prerequisite is a directed relation that goes from concept a to concept b that implies",
       "The student has to learn concept a before learning concept b.",
+      "Indicate the model's confidence with a float value between 0 and 1, where 1 indicates high confidence and 0 indicates no confidence.",
       "Document: {document}",
       "Concpets: {concepts}"
     ],
@@ -46,9 +61,12 @@
               },
               "target": {
                 "type": "string"
+              },
+              "confidence": {
+                "type": "number"
               }
             },
-            "required": ["source", "target"],
+            "required": ["source", "target", "confidence"],
             "additionalProperties": false
           }
         }
