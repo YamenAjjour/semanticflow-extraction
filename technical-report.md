@@ -18,8 +18,8 @@ ideally, the rationale used to explain a specific relation should use the concep
 on relations, i.e., similar relations should be extracted regardless of the course or domain.
 
 Since different disciplines have different teaching philosophies, another challenge for using LLMs is to optimize the prompt to the target domain of each course.
-To test the implementation, I extracted knowledge graphs from the following three free courses that covers three domains: mathematics, programming, and history.
-The extracted knowledge graphs can be found in the (data/sample_courses)[data/sample_courses]
+To test the implementation, I extracted knowledge graphs from the following three free courses that cover three domains: mathematics, programming, and history.
+The extracted knowledge graphs can be found in the [data/sample_courses](data/sample_courses)
 
 1. [Crash Course on Python](https://www.coursera.org/learn/python-crash-course/)
 2. [Ukraine History](https://www.coursera.org/learn/ukraine-history-culture-and-identities/)
@@ -63,8 +63,8 @@ For both prompts, we utilize constrained decoding where we predefine the output 
 
 ### Results
 
-We evaluate the element extraction methods by running the knowledge extraction method on the sample course. Then,
-I revised the elements by dropping those that do not match the definition of the labels. Also, I added elements that were missing.
+We evaluate the element extraction methods by running the knowledge extraction method on a *sample course*. The sample course
+contains two lessons from one module in the single variable calculus. Then, I revised the elements by dropping those that do not match the definition of the labels. Also, I added elements that were missing.
 Based on this ground truth, we utilize F1, precision, and recall by considering a true positive for each element type in case
 an element that is extracted by the extraction method exactly matches one of the elements in the ground truth.
 false positives and false negatives are counted accordingly. A similar evaluation procedure is also employed for
@@ -73,6 +73,7 @@ relation extraction.
 #### Performance breakdown by entity/relationship type
 
 **Element Extraction Performance**
+
 The table shows the F1-score of exact matches for each element type for a sample course that consists of two lessons.
 
 | Method | Concept | Example | Explanation | Assessment | **Macro F1** |
@@ -80,7 +81,8 @@ The table shows the F1-score of exact matches for each element type for a sample
 | 1.0 | 0.73 | 0.20 | 0.0 | 0.0 | **0.39** |
 
 **Relation Extraction Performance**
-The table shows the F1-score of detecting relations for each relation type for a sample course that consists of two lessons. 
+
+The table shows the F1-score of detecting relations for each relation type for a sample course that consists of two lessons.
 
 | Apply | Relate | Prerequisite | Elaborate | Assess | **Macro F1** |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -89,7 +91,7 @@ The table shows the F1-score of detecting relations for each relation type for a
 
 #### Rationale Generation Quality
 
-To evaluate the quality of the generated rationales, we generate the rationale for a *sample source* and then rate them
+To evaluate the quality of the generated rationales, we generate the rationale for a *sample course* and then rate them
 on a Likert scale from 1 to 5 with regard to their quality, where 1 implies a low-quality rationale. We then report
 the average rating for each element type and each relation type, as well as the micro average. As we notice, the quality
 of the rationales for the assessment and concept nodes is lower than that of method elements. For relations, we
@@ -97,7 +99,7 @@ notice a similar problem where rationales for Assesses relations are the worst, 
 
 **Element Rationale Quality**
 
-The table shows the average quality rating for the three elements types for a sample course that consists of two lessons. This covers 28 elements that are detected to be important in each lesson graph.
+The table shows the average quality rating for the three element types for a sample course that consists of two lessons. This covers 28 elements that are detected as important in each lesson graph.
 
 | Assessment | Concept | Method | **Micro Average**           |
 | :--- |:--------|:-- |:----------------------------|
@@ -105,7 +107,7 @@ The table shows the average quality rating for the three elements types for a sa
 
 **Relation Rationale Quality**
 
-The table shows the average quality rating for all relation types for a sample course that consists of two lessons. The relations in this amounts to 22. 
+The table shows the average quality rating for all relation types for a sample course that consists of two lessons. The relations in this amount to 22.
 
 | Apply | Assess | Elaborate | Prerequisite | Relate | **Micro Average** |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -132,7 +134,7 @@ labels such as Explanation: before outputting the actual output.
 
 For relations detection, a common error is missing elaborate_by relations, despite the presence of a clear association between them.
 
-For rationale generation, concept rationales were not tailored to the course content or objective. Rationales
+Typical errors in rationale extraction were that rationales were not tailored to the course content or objective. Rationales
 most of the time explain the reason behind a concept by indicating broad and open-ended reasons that apply to any concept, such as polynomial approximations are needed for mathematical applications. Sometimes, irrelevant learning objectives were
 included that assume the students will learn for specific goals, which might not hold. An example is that exponential functions are needed
 to understand compound rates.
@@ -143,21 +145,19 @@ to understand compound rates.
 ### Discussion & Future Work
 
 According to my annotation, LLMs performed the best at extracting examples and explanations, given their particular style.
-Nevertheless, defining the exact granularity (sentence or paragraph) of explanation and examples is hard, which resulted in bad effectiveness as seen in the Element Extraction Performance table.
+Nevertheless, defining the exact granularity (sentence or paragraph) of the Explanation and examples is hard, which resulted in poor effectiveness as seen in the Element Extraction Performance table.
 On the downside, concept extraction and rationale generation were the hardest tasks.
 #### Limitations
 The main limitations of the current approach lie in its inability to perform larger-scale merging of elements and relations.
 Currently, we employ a bottom-up method by extracting elements and relations on the lesson level.
-A clear bottleneck is that a proper ontology alignment method should calculate
-the similarity between the elements across lessons to come up with a final graph for each module, and then the whole course.
-Also, cross-lesson and cross-module relation detection should be done. Both these steps are essential to increase the consistency
+A clear improvement potential is implementing an ontology alignment method that merges the graphs of different lessons to form a final graph for each module, and then the whole course.
+Also, cross-lesson and cross-module relation detection should be applied. Both these steps are essential to increase the consistency
 of the approach. Evaluating consistency on multiple levels can be done, for example, by calculating how many elements that are recognized in one lesson (module) and
-missed in another lesson (module), i.e., a cross-scale false negative count. Another analysis can also employ edit distance metrics to analyze
-elements that are recognized with different forms across scales.
+missed in another lesson (module), i.e., a cross-scale false negative count. Another analysis can also employ edit distance measures to analyze
+elements that are recognized with different forms in different lessons and modules, though they have the same meaning.
 
 To improve the extraction quality, one can use a few-shot prompting and perform prompting in a human-in-the-loop way.
 Few-shot prompting should help provide the right level of granularity and abstraction that is needed for elements
 such as concepts and explanations. With human-in-the-loop prompting, I assume that one should refine the output of the LLM for one lesson
-and use it then for subsequent lessons. This should help enhance consistency. The low performance on Assesses relations and assessment concepts
-is mainly due to the lack of content extraction for the assessments in the modules, which made it hard to predict which course
-elements are assessed.
+and use it as established terminology while processing for subsequent lessons. This RAG-based setup should help enhance consistency by providing a reviewed element.
+The low performance on Assesses relations and assessment concepts is mainly due to the lack of content extraction for the assessments in the modules, which made it hard to predict which course elements are assessed.
