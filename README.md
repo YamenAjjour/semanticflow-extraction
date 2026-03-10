@@ -3,14 +3,21 @@
 The project extract an educational knowledge graph from a given Coursera course by scarping materials from Coursera and then
 extracting course elements and their relation from the content. Always use the coursel url as provided in the following example.
 The course elements will be extracted using openai. To extract the educational knowledge graph from a given course do the following:
-1. copy ```.env-template``` to ```.env``` in the directory of the project  and add your openai_api_key token. 
 
-2. Call 
+### Setup
+
+1. copy ```.env-template``` to ```.env``` in the directory of the project  and add your openai_api_key token. 
+2. run `pip install -r requirements` 
+
+Notice that we use joblib to cache prompts. 
+
+### Educational Knowledge Graph Extraction
+ 
 ```
 python src/extractor.py --domain mathematics --data data/sample_courses/single_variable_calculus.json --url https://www.coursera.org/learn/single-variable-calculus
 ```
 
-The extractor is based on two prompts in [data/prompts.json](data/prompts.json) an `extract_concepts` prompt that extracts the key concepts and `extract_preqrequisites`
+The extractor is based on two knowledge extraction prompts in [data/prompts.json](data/prompts.json) an `extract_elements` prompt that extracts the key concepts and `extract_relations`
 prompt to detect the relations between the elements.
 
 The output of the extractor is a json file that will be saved under the path provided with the data argument.
@@ -23,8 +30,9 @@ The relationships between the nodes cover
 - assessment a *assesses* *method or object b*
 - concept a *relates to* concept b
 
-The json file has the following format:
-the `lesson_item_id` of a concept indicates the original learning item that the concept is first extracted from.  
+
+- The json file has the following format:
+  
 ```
 {
   "course_id": "course_identifier",
@@ -40,9 +48,18 @@ the `lesson_item_id` of a concept indicates the original learning item that the 
           "title": "...",
           "scale": "lesson",
           "items": [ "Video a", "Video", "Transcript" ],
-          "nodes": [ {"id": "n1", "text": "Node 1", "difficulty": "medium", "lesson_item_id": "m1-l1-video-Video a-1"}] 
-    }
-  ],
+          "nodes": [ {"id": "n1", "text": "Concept 1", "difficulty": "medium"},
+                     {"id": "n2", "text": "Concept 2", "difficulty": "medium", "rationale": "here is the rationale"}] 
+         "edges": [
+                    {
+                      "source": "n1",
+                      "target": "n2",
+                      "type": "prerequisite",
+                      "confidence": 0.95,
+                      "rationale": "Concept 1 is nessecary to understand Concept 2"
+                    }
+            }
+          ],
   "cross_scale_links": [
     {
       "lesson_node": "n1",
@@ -52,15 +69,58 @@ the `lesson_item_id` of a concept indicates the original learning item that the 
   ]
 }
 ```
+### Rationale Extraction
+
+In addition to knowledge extraction, the extractor uses the prompts `extract_element_rationales` and `extract_relations_rationales` in [data/prompts.json](data/prompts.json) for rationales extraction. 
+The rationales are pedagogical reasons that indicate to why the course elements and relations are ordered in that specific way. The prompts take the graph of a specific lesson after topolgically sorting it.  
+The element rationales are generated for key concepts, assessments, and methods. Also, we generate rationales for all relations in the graph. 
+
+Example:
+```
+ {
+  "id": "n22",
+  "text": "Natural Logarithm",
+  "type": "concept",
+  "difficulty": "medium",
+  "lesson_id": "m2-l1",
+  "rationale": "Natural logarithms are introduced alongside exponential functions to explore inverse operations in calculus, providing a natural progression into solving integrals and derivatives involving exponential growth and decay."
+}
+```
+### Token Usage 
+
 In addition to the extracted courses, the script also tracks the costs of calling the openai api by storing the input and output token count,
 the arguments of each prompt, and the costs in a csv file in `data/usage.csv`. 
+To add a new model, you have to add its price per 1,000,000 token to [config.yaml](config.yaml)
 
 ### Evaluation
-To evaluate the extraction method, the output of the extractor for a sample of 3 lessons from two module (functions and taylor serises) is collaboratively
-labeled with `gpt-4o` and saved in `data/evaluation/calculus_sample_concepts.csv` `data/evaluation/calculus_sample_prerequisite.csv` 
-The output of an extractor for the 3 lessons are evaluated against these files by calling 
+To evaluate the extraction method, the output of the extractor for a [sample course](data/sample_courses/single_variable_calculus_sample.json) of two lessons from two module (functions and bonus video on exponantials) is first
+labeled with `gpt-4o` and then annotated by me. The ground truth can found in saved in [single_variable_calculus_elements_ground_truth.csv](data/evaluation/single_variable_calculus_elements_ground_truth.csv) 
+and [single_variable_calculus_relations_ground_truth.csv](data/evaluation/single_variable_calculus_relations_ground_truth.csv).
+The output of an extractor for the two lessons are evaluated against these files by calling 
 
+**Relations**
+```
+python src/evaluation.py --evaluate_relations --predictions data/sample_courses/single_variable_calculus.json --ground_truth data/evaluation/single_variable_calculus_relations_ground_truth.csv 
+```
+This will output 
+
+``` Relations Evaluation - Macro F1: 0.42666666666666664
+  - F1 for 'assess': 0
+  - F1 for 'elaborate': 0.13333333333333333
+  - F1 for 'apply': 1.0
+  - F1 for 'prerequisite': 0.2
+  - F1 for 'relate': 0.8
+```
+**Elements**
+```
+python src/evaluation.py --evaluate_elements --predictions data/sample_courses/single_variable_calculus.json --ground_truth data/evaluation/single_variable_calculus_elements_ground_truth.csv
+```
 
 ```
-python src/evaluation.py --data data/sample_courses/calculus_sample.json 
+  - F1 for 'assessment': 0
+  - F1 for 'example': 0.20000000000000004
+  - F1 for 'explanation': 0
+  - F1 for 'concept': 0.7307692307692308
+  - F1 for 'method': 1.0
+
 ```

@@ -1,0 +1,1875 @@
+{
+  "course_id": "single-variable-calculus",
+  "domain_type": "mathematics",
+  "course_title": "Calculus: Single Variable Part 1 - Functions",
+  "modules": [
+    {
+      "module_id": "m1",
+      "title": "Introduction",
+      "lessons": []
+    },
+    {
+      "module_id": "m2",
+      "title": "A Review of Functions",
+      "lessons": [
+        {
+          "lesson_id": "m2-l1",
+          "title": "Functions1 Overdue",
+          "scale": "lesson",
+          "items": [
+            [
+              "Completed Functions",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to calculus. I'm Professor Ghrist. We're about to begin lecture one on functions. Welcome to chapter one. Every story begins with a cast of characters. In this story of calculus, our characters are functions. And the plot revolves around how these functions interact with each other and what characterizes them from the local workings of their inner behaviors, to the global sweep of their asymptotics. \nPlay video starting at ::32 and follow transcript\n0:32\nThis lesson, and this course, begin with functions. Calculus is all about functions, and indeed, that is where this course begins. Now you're probably used to thinking about functions in terms of their graphs. The pair x with f(x) for a function f. One can also take a more mechanistic view, where x is considered as an input to f, and f(x) is considered as the output. Indeed, visualizing this as a machine is extremely helpful, where one feeds x into f and receives, as an output, f(x). With this in mind, certain terminology about functions becomes natural. \nPlay video starting at :1:27 and follow transcript\n1:27\nFor example, the domain of a function, f, consists of all possible inputs, all the things you might put in to the function. The range of a function, f, consists of all possible outputs, things you might receive from f. Now this is single variable calculus, and because of that, our domains and our ranges are going to be relatively simple. They are going to consist of either the real number line, or certain subintervals thereof. Certain operations on functions become critical. Perhaps the most important is that of composition. F composed with g. \nPlay video starting at :2:13 and follow transcript\n2:13\nThis is the function that takes as its input x, and returns its output, denoted f composed with g of x, and that is g(x) fed into the function, f. We say f(g(x)), and one can visualize this as chaining together the functions f and g in the proper order. g comes first, and then f. For example, if one considers the function, square root of one minus x squared, how can one decompose this into the composition of f and g? Well f, in this case, would be the function that is on the outside or that is done last. This is the square root function. g, that which comes first, is what is on the inside of the square root function. Namely g(x) equals 1- x squared. One additional important operation on functions is that of inverse. \nPlay video starting at :3:23 and follow transcript\n3:23\nThe inverse of a function, f, is denoted f with a superscript, -1. Don't let that fool you. That does not mean you take the reciprocal of f(x). Indeed, f inverse of x is defined as that function which takes as its input, x and returns as an output f inverse of x such that if one composes with f, one gets back the original value of x for all such x. And now, one could also run this in reverse. If you do f first, and then f inverse, one again obtains x. That means that, intuitively, f inverse is the machine that undoes whatever f does. \nPlay video starting at :4:23 and follow transcript\n4:23\nLet's look at a specific example where we take as f, the function x cubed. What would the inverse of this be? Well, it has to be a function that undoes whatever x cubed does. This is, as you may have guessed, x to the one-third power or the cube-root of x. Now, there are several ways to see why this is right. One is that in taking the inverse, we are reversing the role of the input and the output or, geometrically, we are flipping the graph of this function along the diagonal line where the input and the output are equal. Of course, we can also think in terms of what the inverse has to satisfy. \nPlay video starting at :5:16 and follow transcript\n5:16\nIf we do x cubed and then take its cubed root, we get x. Or the other way around. If we take the cube root of x and cube it, we get x. Certain classes of functions wind up being extremely important throughout calculus. Perhaps the simplest such class is that of the polynomials. That is, functions of the form a constant plus a constant times x plus a constant times x squared, all the way up to some finite degree. Constant times x to the n. \nPlay video starting at :5:53 and follow transcript\n5:53\nThat largest power of x is called the degree. There is a summation notation that makes writing out polynomials very simple. We use the Greek capital, sigma. And write a polynomial as the sum, sigma, as k goes from 0 to n of c sub k times x to the k. Here, the cks are coefficients, or constants. Another class of commonly observed functions are the rational functions. These are functions in the form P(x) over Q(x), where P and Q are polynomials. \nPlay video starting at :6:35 and follow transcript\n6:35\nSimple examples like 3x- 1 over x squared + x- 6 are very common throughout mathematics and its applications. Rational functions are very nice to work with. You do, however, have to be careful of what happens in the denominator when you try to plug in a value of x that evaluates the denominator to 0. Your function is not necessarily well defined at such a point. Other powers besides integer powers are important and prevalent. I'm guessing that you all know what x to the zero is. That is, of course, equal to one. \nPlay video starting at :7:20 and follow transcript\n7:20\nWhat's x to the minus one-half? Recall that fractional powers connote roots, and negative powers mean that you take the reciprocal. So that x to the negative one-half is 1 over the square root of x. Now what is the x to the 22-sevenths? Well, break this up into pieces. First we take x to the 22nd power. Then we take the seventh root of x. \nPlay video starting at :7:53 and follow transcript\n7:53\nLastly, what is x to the pi? Well, we're not going to answer that quite yet, but you may have a guess. And especially considering the fact that there are rational numbers that are very, very close to the irrational number pi. Trigonometric functions are extremely common and important. You should already know a bit about sine and cosine. Let's review perhaps the most important, the trigonometric identities. That is, cosine squared + sine squared = 1. \nPlay video starting at :8:31 and follow transcript\n8:31\nThere are several ways to interpret this. You've seen the interpretation involving a right triangle with hypotenuse equal to 1 and with angle set to theta. Then, in this case, the sine of theta is the length of the opposite edge to theta, and the cosine of theta is the length of the adjacent edge. If we think of those as x and y coordinates, respectively, then we see that there's a relationship between this trigonometric identity and the equation for the circle. x squared plus y squared equals one. And indeed, if we think of what happens when we move a point along a unit circle, rotating it by an angle theta from the positive x axis, then the x and y coordinates of that point on the unit circle are precisely, cosine and the sine, respectively. Other trigonometric functions are common and important. I'm sure you recall the tangent is the ratio of the sine to the cosine function, and its reciprocal, the cotangent function. \nPlay video starting at :9:55 and follow transcript\n9:55\nOne can also take reciprocals of cosine, obtaining the secant function, and of sine, obtaining the cosecant function, respectively. Now all of these that involve ratios wind up having vertical asymptotes in their graphs. That is, places where the function is undefined and the denominator goes to zero. The inverse of the trigonometric functions are very useful, but somewhat treacherous. You've got to be careful. Some students like to write the inverse of sine as sine with a -1 superscript. That can lead to some confusion thinking that it is the cosecant or the reciprocal of sine. \nPlay video starting at :10:46 and follow transcript\n10:46\nThat is unfortunate notation and I encourage you to use instead arcsine to denote the inverse of the sine function. The arcsine is that function which, when composed with sine, gives you the identity back. One of the things that you'll note about both the arcsine and the arccosine is that they have a restricted domain. The domain must be the closed interval from negative 1 to 1, because of course, sine and cosine can only take values in that interval. In contrast to this, the arctangent function does have an infinite domain. Its range, however, is limited between negative pi over two and pi over two. These are all functions that you're going to want to be familiar with for moving forward in calculus. \nPlay video starting at :11:47 and follow transcript\n11:47\nThe last class of functions that is of critical importance are the exponential functions. These are functions of the form, e to the x, e to the x being the canonical example of an exponential function. Its inverse is the logarithm, or more precisely, the natural logarithm, ln of x. If you've seen these functions before, you know, because they're inverses, that their graphs have this symmetry about the diagonal. So, for example, if e to the zero is one, as it must be, then log of one must be equal to zero, certainly. The question that is often unanswered in pre-calculus or even elementary calculus courses is, what is e and why is it so important in this exponential function? Well, one can say that e is that value whose logarithm is equal to one. \nPlay video starting at :12:58 and follow transcript\n12:58\nBut since we defined the natural logarithm in terms of base e, that's a bit of circular reasoning. How do we reason about e? Well certainly, e is a number. It is a particular location on the real number line. It has a decimal expansion, but being irrational, it is a little bit hard to remember all of it. That doesn't really answer the question of what is e? Why is it so important? \nPlay video starting at :13:31 and follow transcript\n13:31\nBefore we get to the answer of that, let's review some of the algebraic properties associated with the exponential function. I hope you remember that e to the x times e to the y is e to the x+y. The exponents add. And e to the x raised to the y power is e to the x times y. In your prior exposure to calculus, I'm sure that you've seen some of the differential and integral properties of this function. e to the x has this wonderful property that it is its own derivative. And of course that it is its own integral, at least up to a constant. These facts are easy to remember but maybe not so easy to fully comprehend. \nPlay video starting at :14:20 and follow transcript\n14:20\nThere is one last ingredient that we're going to need before we go deep into exploring what e to the x means. This is something called Euler's Formula. This is simple looking. It states that e to the i times x = cos of x + i times sine of x. This is a wonderful formula, whatever it means. What does it mean? What is this i that is in here? \nPlay video starting at :14:52 and follow transcript\n14:52\nI am sure that you have seen before the notation for the square root of negative 1, for the primal imaginary number, i. That is what is meant in Euler's Formula. It has the property, of course, that i squared is equal to -1. Well, this is a formula. It's a true statement. But what does it mean? Well, that is the subject for our next lesson. \nPlay video starting at :15:23 and follow transcript\n15:23\nAnd so we end with a mystery about the exponential function and what it means to exponentiate something that is not a real number. In our next lesson, we'll resolve this mystery, in part, by contemplating what the exponential function is. \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "How Grading Works Reading Resume . Click to resume",
+              "reading",
+              "How Grading Works\n\nEach \"core homework\" is worth 2% of your grade.  The \"functions exam\" is worth 82% of your grade.  To pass the course, pass each assignment at with a score of 60% or above. \n\nMark as completed\nLike\nDislike\nReport an issue"
+            ],
+            [
+              "Core Homework: Functions Overdue",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/Ixjrl/core-homework-functions"
+            ],
+            [
+              "Challenge Homework: Functions Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/jnMHp/challenge-homework-functions"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n1",
+              "text": "Functions",
+              "type": "concept",
+              "difficulty": "low",
+              "lesson_id": "m2-l1",
+              "rationale": "Functions form the foundation for understanding mathematical relationships, which is why they are introduced first to establish the basic framework upon which more complex operations such as graphing and composition are built."
+            },
+            {
+              "id": "n2",
+              "text": "Graphs of Functions",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1",
+              "rationale": "Graphs are introduced soon after functions to provide a visual means of understanding how functions behave and interact, which is essential for grasping further concepts like limits and asymptotics."
+            },
+            {
+              "id": "n3",
+              "text": "Domain of a Function",
+              "type": "concept",
+              "difficulty": "low",
+              "lesson_id": "m2-l1",
+              "rationale": "Understanding the domain is critical at this stage because it determines the set of possible inputs for a function, which is essential for solving problems and understanding the applicability of mathematical models."
+            },
+            {
+              "id": "n4",
+              "text": "Range of a Function",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1",
+              "rationale": "The concept of range is introduced alongside domain to provide a complete understanding of what a function can output, reinforcing the dual aspects of input and output in functional analysis."
+            },
+            {
+              "id": "n5",
+              "text": "Composition of Functions",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1",
+              "rationale": "Introducing composition of functions at this point allows students to understand how to combine and manipulate functions, which is an essential skill before diving into more complex concepts like inverses and transformations."
+            },
+            {
+              "id": "n6",
+              "text": "Inverse of a Function",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l1",
+              "rationale": "The concept of inverse functions is introduced after composition because understanding how to reverse processes is crucial in mathematical problem solving, particularly in calculus where reversing functions is a common task."
+            },
+            {
+              "id": "n7",
+              "text": "Polynomials",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1",
+              "rationale": "Polynomials are introduced early on as they represent basic yet powerful tools for modeling a variety of problems, and set the stage for understanding more complex function types and behaviors."
+            },
+            {
+              "id": "n8",
+              "text": "Rational Functions",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1",
+              "rationale": "Rational functions build upon the understanding of polynomials and introduce the complexity of division in functions, leading toward the exploration of limits and asymptotic behavior."
+            },
+            {
+              "id": "n9",
+              "text": "Trigonometric Functions",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1",
+              "rationale": "Introducing trigonometric functions prepares students for analyzing periodic phenomena, which are common in calculus and essential for understanding more advanced relationships involving exponential functions."
+            },
+            {
+              "id": "n10",
+              "text": "Exponential Functions",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1",
+              "rationale": "Exponential functions are introduced in conjunction with trigonometric functions to draw parallels between periodic and exponential growth behaviors, both of which are key in calculus applications and real-world modeling."
+            },
+            {
+              "id": "n11",
+              "text": "Natural Logarithm",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1",
+              "rationale": "The natural logarithm is introduced to complement exponential functions, offering insights into inverses of exponential growth and laying the groundwork for logarithmic equations encountered in calculus."
+            },
+            {
+              "id": "n12",
+              "text": "Euler's Formula",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l1",
+              "rationale": "Euler's Formula is introduced because it uniquely bridges the gap between exponential functions and trigonometric functions through complex numbers, illustrating a profound connection in mathematical analysis."
+            },
+            {
+              "id": "n13",
+              "text": "Complex Numbers",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l1",
+              "rationale": "Complex numbers are introduced here to facilitate understanding of Euler\u2019s formula and other advanced functions that require a comprehension of imaginary components, preparing students for applications in calculus."
+            },
+            {
+              "id": "n14",
+              "text": "The domain of a function, f, consists of all possible inputs, all the things you might put in to the function. The range of a function, f, consists of all possible outputs, things you might receive from f.",
+              "type": "explanation",
+              "difficulty": "low",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n15",
+              "text": "Composition of functions is the function that takes as its input x, and returns its output, denoted f composed with g of x, and that is g(x) fed into the function, f. We say f(g(x)), and one can visualize this as chaining together the functions f and g in the proper order.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n16",
+              "text": "The inverse of a function, f, is denoted f with a superscript, -1. Don't let that fool you. That does not mean you take the reciprocal of f(x). Indeed, f inverse of x is defined as that function which takes as its input, x and returns as an output f inverse of x such that if one composes with f, one gets back the original value of x for all such x.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n17",
+              "text": "If one considers the function, square root of one minus x squared, how can one decompose this into the composition of f and g? Well f, in this case, would be the function that is on the outside or that is done last. This is the square root function. g, that which comes first, is what is on the inside of the square root function. Namely g(x) equals 1- x squared.",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n18",
+              "text": "If we do x cubed and then take its cubed root, we get x. Or the other way around. If we take the cube root of x and cube it, we get x.",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n19",
+              "text": "Rational functions are functions in the form P(x) over Q(x), where P and Q are polynomials.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n20",
+              "text": "Fractional powers connote roots, and negative powers mean that you take the reciprocal.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n21",
+              "text": "In taking the inverse, we are reversing the role of the input and the output or, geometrically, we are flipping the graph of this function along the diagonal line where the input and the output are equal.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n22",
+              "text": "Cosine squared + sine squared = 1.",
+              "type": "explanation",
+              "difficulty": "low",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n23",
+              "text": "Other trigonometric functions are common and important. I'm sure you recall the tangent is the ratio of the sine to the cosine function, and its reciprocal, the cotangent function.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n24",
+              "text": "Take reciprocals of cosine, obtaining the secant function, and of sine, obtaining the cosecant function, respectively. Now all of these that involve ratios wind up having vertical asymptotes in their graphs.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n25",
+              "text": "The arcsine is that function which, when composed with sine, gives you the identity back. One of the things that you'll note about both the arcsine and the arccosine is that they have a restricted domain. The domain must be the closed interval from negative 1 to 1, because of course, sine and cosine can only take values in that interval.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n26",
+              "text": "e is that value whose logarithm is equal to one.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n27",
+              "text": "e to the x times e to the y is e to the x+y. The exponents add. And e to the x raised to the y power is e to the x times y.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n28",
+              "text": "e to the x has this wonderful property that it is its own derivative. And of course that it is its own integral, at least up to a constant.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n29",
+              "text": "e to the i times x = cos of x + i times sine of x.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n30",
+              "text": "The square root of negative 1, for the primal imaginary number, i. That is what is meant in Euler's Formula. It has the property, of course, that i squared is equal to -1.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n31",
+              "text": "Core Homework: Functions Overdue",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n32",
+              "text": "Challenge Homework: Functions Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            }
+          ],
+          "edges": [
+            {
+              "source": "n1",
+              "target": "n2",
+              "type": "relate",
+              "confidence": 0.9,
+              "rationale": "Understanding the graphs of functions involves visualizing how changes in the function affect its output values, which is an essential skill for analyzing and interpreting different types of functions and their behaviors. Graphs offer a visual interpretation that reinforces the concept of a function."
+            },
+            {
+              "source": "n9",
+              "target": "n10",
+              "type": "relate",
+              "confidence": 0.85,
+              "rationale": "Trigonometric and exponential functions are interrelated through identities and complex numbers, particularly in Euler's Formula, which connects complex exponentials to sines and cosines. This relationship is crucial for understanding advanced calculus topics."
+            },
+            {
+              "source": "n11",
+              "target": "n10",
+              "type": "relate",
+              "confidence": 0.9,
+              "rationale": "The natural logarithm and exponential functions are inverses of each other, meaning understanding one aids in understanding the other. This inverse relationship is foundational for solving many calculus problems involving growth and decay models."
+            }
+          ]
+        },
+        {
+          "lesson_id": "m2-l2",
+          "title": "Exponentials",
+          "scale": "lesson",
+          "items": [
+            [
+              "Exponentials",
+              "video",
+              null
+            ],
+            [
+              "BONUS!",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to Calculus. I'm Professor Greist, and we're about to  begin lecture two, bonus material. In our main lesson, we saw a definition  for e to the x, in terms of a series, and from that and a little bit of help from  Euler's formula. We derived expressions for sin of x and  for cosine of x. These can seem a little mysterious,  difficult to work with at first but if you think of these as long polynomials.  Polynomials of unbounded degree. It can make it easier both to work with  them and to understand what the series mean.  Let's consider the case of e to the x and see what happens when we cut off the  series at some finite polynomial term, since polynomials are so easy to work  with. If we stop after the first term.  Well, it's a, a bit too simple to conclude much.  But if we keep going, looking at 1 plus x.  Or 1 plus x plus x squared over 2 factorial.  Or continuing to include the cubic term, as well.  Then we see that we're getting closer and closer.  Two, what the graph of e to the x looks like.  Especially if we zoom in very very close to what's happening near the origin.  And does the same thing work with the other series that we've looked at?  Well, let's consider cosine of x. We know that the terms in the series  expansion go, like, one. And then 1 minus x squared over 2.  Then, 1 minus x squared over 2, plus x to the fourth over 4 factorial.  And what we see is that we're getting closer and closer to what cosine is doing  the more terms that we add. In this series, the better an  approximation to cosine we obtain. It will come as no surprise to you that  the same thing is true of sine, that when we look at the linear term and then the  cubic term and then the fifth order term. That, although we're not getting exactly  sin, we're getting something that is closer and closer.  And this will keep on going. The more terms that we add, the better  these polynomial approximations become to the true function.  At this point, a few remarks are in order.  First of all, these finite polynomial approximations work best near zero.  If you want to approximate e to the x, when x is very, very large, then you're  going to need quite a few terms. In order to get a good approximation.  Now that's okay, e to the x really is this infinite series, but it's precisely  because you include all of the terms. And second of all, sometimes you will see  the term MacLaurin series used to apply to infinite series of this form.  I choose to use the notation Taylor series exclusively, and in a few lessons,  we'll see exactly what type of Taylor series we're talking about, when we write  out things in this form. Lastly, and most importantly, at this  point in the course, you may be ready to press the panic button.  We have begun with material that is usually reserved for the end of a second  semester calculus course. Relax.  Don't panic. You'll see in just a few short lessons  what the payoff is for beginning a calculus course with infinite series.  Stick with it, learn the mechanics and know that a deeper understanding is  coming. This is not an easy course and it's a  long one. We have a lot of time left together.  Don't panic. Work at it and you'll make it to the end  with a deeper understanding of calculus.  \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "Core Homework: The Exponential",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/fXvQ8/core-homework-the-exponential"
+            ],
+            [
+              "Challenge Homework: The Exponential Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/YlK9h/challenge-homework-the-exponential"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n33",
+              "text": "e to the x",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2",
+              "rationale": "Introducing 'e to the x' early provides students with a foundational example of exponential growth, which is pivotal for understanding series expansions and calculus operations that follow. This concept is key because it often appears in the context of calculus and functions."
+            },
+            {
+              "id": "n34",
+              "text": "Polynomial of Unbounded Degree",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2",
+              "rationale": "'Polynomial of Unbounded Degree' is introduced to bridge the understanding between polynomial functions and infinite series, preparing students to approach series expansions of functions such as e to the x."
+            },
+            {
+              "id": "n35",
+              "text": "Series Expansion of e to the x",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2",
+              "rationale": "'Series Expansion of e to the x' offers a concrete application of infinite series, showing how complex functions can be expressed as simpler polynomials. This explanation builds on students' understanding of exponential functions and prepares them for further topics in series and approximations."
+            },
+            {
+              "id": "n36",
+              "text": "Series Expansion of Cosine",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n37",
+              "text": "Series Expansion of Sine",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n38",
+              "text": "Finite Polynomial Approximations",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2",
+              "rationale": "The concept of 'Finite Polynomial Approximations' is strategically placed here to illustrate the practical aspect of approximating functions, such as e to the x, within a manageable degree for computation ease and understanding of approximation theory."
+            },
+            {
+              "id": "n39",
+              "text": "Maclaurin Series",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2",
+              "rationale": "Introducing the 'Maclaurin Series' provides a specific type of Taylor series at zero, allowing students to understand series centered at the origin, thus simplifying the calculations and enhancing conceptual understanding of series."
+            },
+            {
+              "id": "n40",
+              "text": "Taylor Series",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2",
+              "rationale": "The 'Taylor Series' is a crucial concept that generalizes polynomial approximations to any function within an interval. Its introduction sets the stage for understanding the flexibility of calculus in approximating functions around any point."
+            },
+            {
+              "id": "n41",
+              "text": "Core Homework: The Exponential",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n42",
+              "text": "Challenge Homework: The Exponential Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            }
+          ],
+          "edges": [
+            {
+              "source": "n33",
+              "target": "n35",
+              "type": "elaborate",
+              "confidence": 0.9,
+              "rationale": "The concept of e to the x is fundamental in calculus, and its series expansion provides a deeper understanding of how this function can be represented as an infinite sum of terms. By elaborating from e to the x to its series expansion, learners can grasp the connection between exponential functions and infinite series, thereby reinforcing their understanding of both topics."
+            },
+            {
+              "source": "n12",
+              "target": "n33",
+              "type": "prerequisite",
+              "confidence": 0.8
+            },
+            {
+              "source": "n34",
+              "target": "n38",
+              "type": "relate",
+              "confidence": 0.85,
+              "rationale": "The transition from polynomial of unbounded degree to finite polynomial approximations helps students understand the practical application of infinite series in real-world problems, where we often approximate an infinite series with a finite polynomial to make computations tractable. This connection highlights the need to balance mathematical accuracy with computational feasibility."
+            },
+            {
+              "source": "n40",
+              "target": "n39",
+              "type": "relate",
+              "confidence": 0.9,
+              "rationale": "Maclaurin Series is a specific case of the Taylor Series where the expansion is about the point zero. Relating Taylor Series to Maclaurin Series helps students recognize the versatility of the Taylor Series and understand how setting different points of expansion can lead to significant simplifications in certain mathematical contexts."
+            },
+            {
+              "source": "n41",
+              "target": "n33",
+              "type": "assess",
+              "confidence": 0.95,
+              "rationale": "The Core Homework: The Exponential assesses the student's basic understanding of the exponential function e to the x, ensuring they can apply and interpret this foundational concept independently. It provides an opportunity for students to demonstrate their grasp of its behavior, properties, and importance, which is critical before advancing to more complex topics."
+            },
+            {
+              "source": "n42",
+              "target": "n33",
+              "type": "assess",
+              "confidence": 0.95,
+              "rationale": "The Challenge Homework offers an opportunity to assess students' deeper comprehension and problem-solving skills related to e to the x. It is designed to encourage critical thinking and application of knowledge in novel scenarios, providing a higher level of challenge that helps solidify their understanding and readiness for advanced concepts."
+            },
+            {
+              "source": "n35",
+              "target": "n38",
+              "type": "elaborate",
+              "confidence": 0.9,
+              "rationale": "Elaborating from series expansion of e to the x to finite polynomial approximations aids in grounding the abstract concept of an infinite series into more manageable, finite forms. This progression is crucial for solving practical problems where exact solutions are less feasible, thus introducing students to approximation methods commonly used in calculus."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "module_id": "m3",
+      "title": "Taylor Series",
+      "lessons": [
+        {
+          "lesson_id": "m3-l1",
+          "title": "Taylor Series",
+          "scale": "lesson",
+          "items": [
+            [
+              "Taylor Series",
+              "video",
+              null
+            ],
+            [
+              "Core Homework: Taylor Series",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/ucCCU/core-homework-taylor-series"
+            ],
+            [
+              "Challenge Homework: Taylor Series Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/7QtJD/challenge-homework-taylor-series"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n1",
+              "text": "Taylor Series",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l1"
+            },
+            {
+              "id": "n2",
+              "text": "Core Homework: Taylor Series",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m3-l1"
+            },
+            {
+              "id": "n3",
+              "text": "Challenge Homework: Taylor Series Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m3-l1"
+            }
+          ],
+          "edges": [
+            {
+              "source": "n2",
+              "target": "n1",
+              "type": "assess",
+              "confidence": 0.9
+            },
+            {
+              "source": "n3",
+              "target": "n1",
+              "type": "assess",
+              "confidence": 0.85
+            }
+          ]
+        },
+        {
+          "lesson_id": "m3-l2",
+          "title": "Computing Taylor Series",
+          "scale": "lesson",
+          "items": [
+            [
+              "Computing Taylor Series",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to Calculus I'm Professor Griest. We're about to begin lecture four on computing Taylor series. &gt;&gt; We now have in hand the definition of the Taylor series but the question remains, what is the best way to compute them? In this lesson, we'll cover some methods for clean and quick computations of Taylor Series. In doing so, we'll see that this leads us to some new and interesting functions. &gt;&gt; Recall the definition of a Taylor Series. If you want to compute one of these, well you may have to take a lot of derivatives. But that's not your only choice. There are a few other methods as well, including substitution and combination. \nPlay video starting at ::51 and follow transcript\n0:51\nLet's begin with an example. The displays a substitution method. Consider the function, 1 over X times sine of x squared. Computing on the Taylor Series for this might be a lot of work. Having to differentiate this is not entirely trivial. However, we do know what sine of X is in terms of its Taylor series? Sine of X is X minus X cubed over 3 factorial, plus X to the fifth over 5 factorial, et cetera. If instead of using sine of X, we'll use sign of X squared plugging in X squared into the Taylor series for sin of x. \nPlay video starting at :1:40 and follow transcript\n1:40\nAnd the multiplying that by 1 over X. Well, we obtain something that is going to work. A little bit of simplification gives X minus X to the fifth over 3 factorial, plus X to the ninth over 5 factorial. Etcetera. Another method for obtaining the same answer would be to take the full summation. As K goes from zero to infinity, of negative one to the K times X squared to the 2K plus 1 over 2K plus 1 quantity factorial. By adding up the coeeficients of the X term properly, we can in fact obtain the full Taylor series for this function. As sum K goes from 0 to infinity, negative 1 to the K, X to the 4 K plus 1. Over quantity 2K plus 1 factorial. \nPlay video starting at :2:43 and follow transcript\n2:43\nThat means in effect that we have all of the derivatives of this function evaluated at zero in one simple computation. There are other methods as well involving a combination of like terms. Consider the example of cosign squared, of X. We know the the Taylor series for cosign of X. It is the familiar one minus X squared over two factorial, etcetera. We can square that and then evaluate the product. How would we do so. If we consider these as very long polynomials, then we could apply what we know from polynomial multiplication. \nPlay video starting at :3:29 and follow transcript\n3:29\nThe lowest order term is equal to 1 that is 1 times 1. The next order term consists of 1 times negative X squared over 2 factorial. Plus negative X squared over 2 factorial times 1. The next order terms are of fourth order and consist of X squared over 2 factorial quantity squared. but there are a few others as well. There is an X to the fourth over 4 factorial term. And another X to the fourth over 4 factorial term. All of the other terms are going to be of higher order. \nPlay video starting at :4:16 and follow transcript\n4:16\nOne could continue multiplying although the multiplications would become a bit tedious. And now one must simplify these terms. With a little bit of work, it's easy to get the low order terms and to get 1 minus X squared plus X to the fourth divided by 3 minus X to the sixth times, 2/45, etcetera. If you want more terms, then you're going to have to do, a bit more work. The one thing that you can note however is that this must be one minus sin squared of X. And so, from this we obtain the Tailor series for sin squared of X as well. With these tools in hand let us consider a new class of functions, these are the hyperbolic trigs. The hyperbolic cosine of X or cosh of X is defined as e to the X plus e to the minus X over 2. \nPlay video starting at :5:26 and follow transcript\n5:26\nThe hyperbolic sign of X is defined as e to the X minus e to the minus X over 2. What do these functions look like? Well, they don't look anything like a sine or a cosine. They both grow very rapidly and X due to the exponentials. And their definitions. Nevertheless, these are very important and useful functions. There are others as well, such as the hyperbolic tangent or tanh of X. \nPlay video starting at :5:59 and follow transcript\n5:59\nAs you might guess, this is really sinh of X over cosh of X. That is E to the X minus E to the minus X over E to the X plus E to the minus X. Now, some of the rules that you're familiar with from trigonometry hold in this hyperbolic setting but with a bit of a twist. For example, cosh squared of X minus sinh squared of X is equal to 1. One can compare that with the familiar formula, cosine squared plus sine squared equals 1. What does this formula mean? well, we know the relationship between cosine, sine and points on a unit circle. \nPlay video starting at :6:50 and follow transcript\n6:50\nNamely cosine is the X coordinate, the sine is the y coordinate. Of a point moving along that unit circle. In the hyperbolic trigonometric setting, the same is true but for a hyperbola instead of, for a circle. As you might suspect, there are also hyperbolic secant, co-secant and cotangent functions. Let's investigate these hyperbolic trig functions from the point of view of Taylor series. 77 00:07:25,584 --&gt; 00:07:29,859 For example, if we consider the hyperbolic cosine of X as one half E to the X plus one half E to the minus X. Then it's clear how to compute the Taylor's series. Instead of trying to take derivatives, we'll simply substitute in the known series for e to the X, multiplied by one half and then add to it, 1 1/2 times the series for e to the minus X. \nPlay video starting at :7:54 and follow transcript\n7:54\nWhich, of course is the Taylor series for e to the X, with minus X substituted in. Leaving negative signs at the odd powers of X. By combining terms according to degree, we see that all of the odd degree terms cancel. And we are left with only the even degree terms. The same as in the expansion of E to the X 1 plus X squared over 2 factorial plus X to the fourth over 4 factorial, etcetera. If we wish to write this out in summation notation, it would be the sum K goes from 0 to infinity X to the 2 K over 2 K quantity factorial. Notice that just like the Taylor series for cosine of X, COSH of X consists of the even powers but with no alternating sign. That is another relationship between the trigonometric and the hyperbolic trigonometric functions. \nPlay video starting at :9:7 and follow transcript\n9:07\nDoes the same hold for the hyperbolic SINH. Well let's investigate and see. Following the same method as before we will use the Taylor series for E to the X. And then the Taylor series for E to the minus X but now instead of adding these two terms together, we are going to subtract the ladder from the former. This leads to a cancellation of all the even powered terms and distributing the minus sign through and adding, we obtain all of the odd degree terms in the Taylor Series for E to the X. Thus the sum K goes from 0 to infinity. X to the 2K plus 1 over 2K plus 1 quantity factorial. \nPlay video starting at :10:1 and follow transcript\n10:01\nJust like sign. We can continue our exploration of these functions by proceeding as if the Taylor series are like long polynomials. Hence computing things like integrals or derivatives can be done, term by term. Let's consider what the derivative of the hyperbolic sine of X would be. Well, we can differentiate the terms of the Taylor Series. Since the derivative of X to the 2K plus 1 equals 2K plus 1 times X to the 2K. We can see by dividing by 2K plus 1 quantity factorial and summing as K goes from 0 to infinity. That, the derivative is the sum. \nPlay video starting at :10:54 and follow transcript\n10:54\nK goes from 0 to infinity of X to the 2K over 2K, quantity factorial. That is simply the hyperbolic cosine of X. In similarity to what happens with trig functions the derivative of sinh is cosh. Likewise, what is the derivative of cosh of X? If we differentiate term by term we can see that the derivative of X to the 2K is 2K times X to the 2K minus 1. Now we have to perform a shift in the index, here. In order to avoid problems with what happens when K equals 0. Re-indexing properly gives us the sum, K goes from 0 to infinity of X to the 2 K plus 1 over 2 K plus 1 quantity factorial. That is the hyperbolic sine of X. \nPlay video starting at :11:56 and follow transcript\n11:56\nAnd so we see that the hyperbolic trade functions are very nice. The derivative of sinh is cosh. The derivative of cosh is sinh. And this becomes clear from the Taylor series. Now we're used to writing out the Taylor series. Term by term, of course, since there are infinitely many, we can't write them all. We typically use a plus .... or an ellipses to conote what happens in the tail of the series. But, there's another terminology that we will begin using. That of H O T or Higher Order Terms. \nPlay video starting at :12:42 and follow transcript\n12:42\nThis is an informal way of saying, etcetera and it can be a bit helpful. For example, you might say that cosine of X is 1 minus X squared over 2 plus Higher Order Terms. We could say that sign of X is X plus higher order terms or X minus X cubed over 3 factorial plus HOT. And we could stop whenever we feel like. That's a convenient thing to do when performing computations on Taylor series. We'll use a more formal bookkeeping mechanism soon. Let's look at this in the context of a simple example. 1 minus 2 X times E to the sine of X squared. We'll begin with the Taylor series for sine of X squared, which is simply X squared minus X to the sixth over 6 plus higher order terms. What happens when we exponentiate this? \nPlay video starting at :13:47 and follow transcript\n13:47\nWe use the Taylor series for e to the X, 1 plus our quantity above plus 1 1/2 times that quantity squared plus one 1 1/6 times that quantity cubed, etcetera. Notice that I am using plus higher order terms liberally in order to ignore things that aren't going to matter for the first few terms. To simplify this, we go degree by degree. The constant term is one. There's only 1 quadratic term, namely X squared. Are there any fourth order terms? Well, yes there is. 1/2 times X to the fourth. In the sixth degree terms there are two of them. But notice, the coefficients balance each other out. And so the coefficient of the sixth order term is 0. We are left with a Taylor series of 1 plus X squared plus X to the fourth over 2 plus higher order terms. \nPlay video starting at :15: and follow transcript\n15:00\nNow to get the Taylor series for our original function f. We simply take 1 and subtract 2X times the quantity obtained above. I'll let you show, with a little simplification, that this is 1 minus 2X minus 2X cubed minus X to the fifth plus higher order terms. If you want more terms, you can get them, it will take more work. &gt;&gt; We've now learned not only what Taylor series are but how to compute them quickly and cleanly. Along the way, we've been introduced to two new characters in our story. The hyperbolic sine and cosine. In our next lesson we're going to consider what happens when things don't work out so well. We'll deal with issues of convergence. \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "Core Homework: Computing Taylor Series",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/gvqzg/core-homework-computing-taylor-series"
+            ],
+            [
+              "Challenge Homework: Computing Taylor Series Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/xYNPw/challenge-homework-computing-taylor-series"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n4",
+              "text": "Substitution",
+              "type": "method",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n5",
+              "text": "Combination",
+              "type": "method",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n6",
+              "text": "The substitution method is applied to the function 1 over X times sine of X squared. Instead of differentiating, the Taylor series for sine of X is used by substituting X squared into the series, and then multiplying by 1 over X to simplify and compute the series.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n7",
+              "text": "As K goes from zero to infinity, of negative one to the K times X squared to the 2K plus 1 over 2K plus 1 quantity factorial. By adding up the coefficients of the X term properly, we can obtain the full Taylor series for the function.",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n8",
+              "text": "Combination of Like Terms",
+              "type": "method",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n9",
+              "text": "Polynomial Multiplication",
+              "type": "method",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n10",
+              "text": "For the Taylor series of cosine squared of X, the known series for cosine of X is squared, and then polynomial multiplication is applied to evaluate the product, leading to the simplification of the series into lower order terms.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n11",
+              "text": "Hyperbolic Cosine (Cosh)",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n12",
+              "text": "Hyperbolic Sine (Sinh)",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n13",
+              "text": "Hyperbolic Tangent (Tanh)",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n14",
+              "text": "The derivative of sinh is cosh, and the derivative of cosh is sinh, which can be verified by differentiating the terms of their respective Taylor Series. A shift in the index is performed during differentiation to avoid issues when K equals 0.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n15",
+              "text": "Higher Order Terms (HOT)",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n16",
+              "text": "For a function 1 minus 2 X times e to the sine of X squared, the Taylor series is constructed by starting with the series for sine of X squared, then exponentiating using the series for e to the X. Higher order terms are used to simplify the expansion up to a manageable level, resulting in a final series of 1 plus X squared plus X to the fourth over 2 plus higher order terms.",
+              "type": "example",
+              "difficulty": "high",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n17",
+              "text": "Core Homework: Computing Taylor Series",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            },
+            {
+              "id": "n18",
+              "text": "Challenge Homework: Computing Taylor Series Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m3-l2"
+            }
+          ],
+          "edges": [
+            {
+              "source": "n1",
+              "target": "n4",
+              "type": "prerequisite",
+              "confidence": 0.9
+            },
+            {
+              "source": "n1",
+              "target": "n8",
+              "type": "prerequisite",
+              "confidence": 0.9
+            },
+            {
+              "source": "n1",
+              "target": "n9",
+              "type": "prerequisite",
+              "confidence": 0.85
+            },
+            {
+              "source": "n4",
+              "target": "n6",
+              "type": "elaborate",
+              "confidence": 0.95,
+              "rationale": "The substitution method is a technique used to simplify the computation of Taylor series where direct differentiation is complex or tedious. Introducing this method helps students understand how substitutions can simplify integration or differentiation problems, especially when dealing with nested functions. This relation assumes that students are already comfortable with basic substitution techniques from their prior calculus knowledge."
+            },
+            {
+              "source": "n8",
+              "target": "n10",
+              "type": "elaborate",
+              "confidence": 0.93,
+              "rationale": "The combination of like terms involves simplifying expressions by merging terms that have the same variable powers. This elaboration shows its practical use in simplifying a complex series, fostering a deeper understanding of polynomial expressions and series simplification. It assumes students are familiar with basic algebraic manipulation."
+            },
+            {
+              "source": "n9",
+              "target": "n10",
+              "type": "elaborate",
+              "confidence": 0.93,
+              "rationale": "Polynomial multiplication helps in understanding how functions interact when they are represented as series. This concept is crucial for combining series expansions accurately and is used here to simplify a squared series expansion. It assumes students understand multiplication of polynomials learned in previous algebra courses."
+            },
+            {
+              "source": "n15",
+              "target": "n6",
+              "type": "elaborate",
+              "confidence": 0.8,
+              "rationale": "Higher Order Terms (HOT) refer to terms in a series beyond the main terms of interest, often contributing less to the initial approximation. This relation explains their role in refining or terminating series expansions. Here, HOT provides a clear understanding of their significance in practical series computation, assuming familiarity with Taylor series basics."
+            },
+            {
+              "source": "n15",
+              "target": "n16",
+              "type": "elaborate",
+              "confidence": 0.85,
+              "rationale": "This use of Higher Order Terms (HOT) showcases how advanced series are constructed and simplified, emphasizing their role in practical simplifications. It illustrates how terms are chosen to balance accuracy with complexity, a skill critical in calculus and its applications. Assumes understanding of series expansion and simplification strategies."
+            },
+            {
+              "source": "n17",
+              "target": "n1",
+              "type": "assess",
+              "confidence": 0.9
+            }
+          ]
+        },
+        {
+          "lesson_id": "m3-l3",
+          "title": "Convergence",
+          "scale": "lesson",
+          "items": [
+            [
+              "Convergence",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to Calculus. I'm Professor Ghrist.  We're about to begin Lecture 5 on Convergence.  Every epic adventure involves facing some sort of adversity.  It's time that we confronted a challenge. Every series involves adding together an  infinite number of terms. This is dangerous.  In this lesson, we'll confront some of technicalities associated with adding up  an infinite number of terms. We'll find that along the way we  encounter series that are not only novel, but extremely useful.  There is clearly a problem with the principle that every function has a nice  Taylor series about 0. It's simply not true.  If we look at a function such as log of x, then of course, this function is not  even defined at x equals 0. There's no way that this can be true.  One of the reasons behind this is that polynomials are simply too nice or simple  to capture all of the complexities of functions that we see.  Another problem is it is dangerous to add together an infinite number of terms.  One must be careful. Let's look at an example where adding  together an infinite number of terms can lead to something good.  Consider the sum 1 plus 1 half plus 1 half squared plus 1 half cubed, et  cetera. The sum k goes from 0 to infinity of 1  half to the k. As you may be able to guess, from  geometry if nothing else, this sum converges and converges quite simply to  the number 2. This is an example of something called a  geometric series. You may have seen it before.  The more general version of the geometric series Is 1 plus x, plus x squared, plus  x cubed et cetera. The sum k goes from 0 to infinity of x to  the k. The geometric series says that this  equals 1 over 1 minus x, so that for example, if x equals 1 half, this sum  converges to 2. How would you how would you prove  something like this even for values for x not equal to 1 half?  Well, let's see. Let us take this infinite sum and call it  y. If we multiply this by x, then we obtain  x plus x squared plus x cubed, et cetera. If we were to subtract that from our  original series y, then we see that everything cancels except for the first  term. So that y minus x times y equals 1.  Factoring and solving for y gives that y equals 1 over 1 minus x.  That is clear as far as an algebraic manipulation.  But does this actually work? Does it make sense?  What happens if we plug in x equals 1? Then we get 1 plus 1 plus 1 plus 1 plus  1. Clearly that is not a finite number.  And 1 over 1 minus 1 doesn't even make any sense.  That is undefined. Well, this derivation only holds for  values of x less than 1 in absolute value, otherwise, this infinite series  does not converge. Let's take a look at what happens at the  other extreme. What if x equals minus 1?  Is there really a problem here? Well, we would be asking for the sum 1  minus 1, plus 1, minus 1, et cetera. Maybe this does have a well-defined  answer. If we paired up the terms, 1 minus 1 plus  1 minus 1, then we would seem to get 0, what's wrong with that?  Well, if you could do that, then why not pair the terms a bit differently?  And take 1 minus 0 minus 0 minus 0, so that the sum would be equal to 1.  If you're not sure which of these is correct, perhaps, the best thing to do is  to take the average, split the difference, and declare it to be 1 half.  This is, after all, what one would obtain by plugging in a value of negative 1 into  the expression 1 over 1 minus x. Well, as you might guess, none of these  is correct. This series does not converge.  The value of x equals minus 1 or for any value of x that is not less than 1 in  absolute value. The moral of the story is that this and  other Taylor series possess a convergence domain, on which the series is  well-defined and well-behaved. Now, for many of the Taylor series that  we've encountered thus far, the domain of convergence is the entire real line for  the exponential function, sine, cosine, hyperbolic sine, hyperbolic cosine.  There are no convergence issues. It is for series like the geometric  series that we have to be more careful. Now, within the domain of convergence,  you can manipulate the series at will. You can rearrange the terms.  Differentiate term by term. Integrate.  Recombine. Whatever you wish.  There are no problems, as long as you are within the interior of that domain of  convergence. You must be very careful about what  happens near the borders. We'll talk more about that in Chapter 5.  For the moment, I want to focus on what we can do.  Let's take a look at another example. Compute the Taylor series of not log of  x, but log of quantity 1 plus x. Maybe this will be not so bad, since for  small values of x, this function is well defined.  We could start taking derivatives of this function.  But manipulating a known series is going to be a bit easier.  One of the things that you may recall is that the log of 1 plus x is equal to the  integral of 1 over 1 plus x, dx. If you remember that, great.  If you don't, don't worry about it. Accept it as a given and let's move on  from there. What could we do with that integrand, 1  over 1 plus x? That is really the geometric series  evaluated at negative x, and so, we could integrate the sum k goes from 0 to  infinity of negative x to the k with respect to x.  By rearranging the terms, a thing that we are allowed to do as long as we are  within the convergence domain, and pulling out the negative 1 to the k, then  we get the sum, as k goes from 0 to infinity, of negative 1 to the k, times  the integral of x to the k. That is x to the k plus 1 or k plus 1 if  we add an arbitrary constant out in front, well, that's actually not going to  be so bad. Why?  When x equals 0 we obtain the log of 1 which is 0.  So forget that constant. And now, we have an answer with a bit of  re-indexing. As the sum k goes from one to infinity, a  negative 1 to the k plus 1 times x to the k over k.  That is perhaps more easily remember as x minus x squared over 2 plus X cubed over  3, et cetera. Notice there are no factorials here.  This is x to the k over k. Now are there any problems with this?  Well, since we used the geometric series in this derivation, we must be careful to  remain within the convergence domain for this.  x must be less than 1 in absolute value. This fits well with the principle that  Taylor polynomials approximate well only on the convergence domain.  If we look at the terms of this series as an approximation to log of 1 plus x and  we get increasingly something that seems to fit what the curve is doing.  But only on the domain of convergence as x goes to negative 1 to 1, that is, we're  looking at values of log from 0 to 2. Outside of this region these polynomial  curves do not become better and better approximations.  They in fact become worse and worse. Let us consider another example, this  time the arctan function, one of the things that you may recall is that arctan  has as its derivative 1 over 1 plus x squared.  So, we can integrate this to obtain arctan.  You will notice also that 1 over 1 plus x squared can be represented as the  geometric series of negative x squared. So, that we can integrate the sum of  negative x squared to the k. k goes from 0 to infinity.  Again, by rearranging terms doing a little bit of work here.  We see that we get the sum, k goes from 0 to infinity, negative 1 to the k times  the integral of x of 2k. That is x to the 2k plus 1 over 2k plus  1. We have to deal with the constant of  integration. But again, since arctan of 0 equals 0 it  is irrelevant. We therefore obtain the Taylor series, x  minus x cubed over 3. Plus x to the 5th over 5, minus x to the  7th over 7, et cetera. Once again, no factorials in those  denominators. And once again, it is important that x  remain less than 1 in absolute value in order for this series to converge,  because we used the geometric series as its basis.  There is one last series that will be very helpful to us.  This is the binomial series. It is the Taylor series for 1 plus x to  the alpha, where alpha is a constant. The series is 1 plus alpha x plus 1 over  2 factorial times alpha times alpha minus 1 times x squared.  Well, there are lot of other terms here. Let me say simply that the kth order term  is alpha choose k times x to the k, where by alpha choose k, I mean a binomial  notation. This is the number alpha, times alpha  minus 1, times alpha minus 2, all the way down to alpha minus k plus 1.  Take that product and divide by k factorial.  For example, if alpha equals 2, then what does the binomial series give you?  1 plus alpha times x plus 1 half alpha times alpha minus 1 times x squared and  that simplifies to x squared. All other terms involve an alpha minus 2  hence the coefficients are 0. And we obtain, of course, what the Taylor  series for this polynomial must be. When alpha equals negative 1, we're  really looking at a variation of the geometric series for 1 over 1 plus x.  This however, holds for all values of alpha.  For example, if we take alpha equal to 1 half.  So that we're looking at the square root of 1 plus x.  Then one can evaluate these binomial coefficients and obtain a Taylor series  for that. In this case, in particular this is only  going to remain valid for x less than 1 in absolute value.  We now have a full collection of Taylor series.  Many of these have domains of convergence that are infinite, e to the x, cosine and  sine, and cosh and sinh. These are the nicest Taylor series that  you're going to run into in this course. However, from this lesson, we have  another collection of Taylor series that are guaranteed to convert only when x is  less than 1 in absolute value. This is the geometric series.  The series for log of 1 plus x. The series for arctan and the binomial  series. These one has to be a bit careful with.  But as long as you are within the domain of convergence, these wonderful series.  The moral of this lesson is that, so long as you are within the domain of  convergence, you can do wonderful things. Check out the bonus material for this  lecture for an additional example. In our next lesson, we'll consider what  happens when you wish to focus your attention on some specific location, an  expansion point.  \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "BONUS!",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to Calculus. I'm Professor Greist, and we're about to  begin Lecture 5, Bonus Material. In our lesson, we saw two important  series that have convergence constraints. These are the geometric series for 1 over  1 minus x, and the binomial series for 1 plus x to the alpha.  Both of these are guaranteed to converge, only when x is less than 1 in absolute  value. Let's put these series to work.  In a problem in Electrostatics. An electric dipole is a pair of equal and  oppositely charged particles separated by a short distance.  Now, this is a calculus class, not a physics class.  Don't worry, you're not going to need to know this for the exam, but let's learn a  little bit and have some fun with it. The electrostatic potential gives the  potential energy of this dipole, this pair of charges, as a some of point  charge potentials. Now what do I mean by that?  Well, each charge has a potential energy associated to it.  The pair of them together yields a potential energy that depends on your  position. So let's say that you're at some location  away from the dipole. You want to know, what is the  electrostatic potential. It's given by the following formula, V is  equal to kq over d plus, minus kq over d minus.  What does that mean? Well, k is a constant, the Coulomb  constant. Q is the amount of charge on each element  of this dipole. And d plus and d minus are the distances,  respectively, to the positive and the negative charge in the dipole.  Alright, that's the physics that we need. Let's do some math.  Let's compute what this electrostatic potential V is, in the case where you are  standing at a distance d, away from the positive charge, and where d is much  greater than r, the separation distance between the two charges in your dipole.  Now I'm going to assume that we are orthogonal to the dipole, that is we're  at distance d from the positive charge but perpendicular to the orientation of  the dipole. That means that the distance to the  negative charge is, by Pythagoras's theorem, the square root of d squared  plus r squared. So that in computing V, we get kq over d,  the positive charge distance, minus kq over square root of d squared plus r  squared. We could stop there, but let's simplify  this as much as possible. If we factor out kq over d, then we get a  one from the left term, from the right term we get 1 over the square root of  quantity 1 plus r over d quantity squared.  Well, at this point we can try to expand that out using the binomial series.  Recall the binomial series is for something of the form 1 plus x to the  alpha. In this case, alpha is negative one half.  We're looking at one over the square root of something, and x is r over d quantity  squared. Because the first two terms in the  binomial series are 1 plus alpha x, we get the first two terms in the series  applied here to be 1 minus one half times r over d quantity squared.  Simplifying, we see that the ones cancel and we're left with kq over d times one  half, are over d quantity squared. Everything else is of higher order term  in r squared over d squared. Let's remember that one half r over d  quantity squared. In fact, we'll set it over here, right  next to the location. And consider what happens when we look at  distance d away from that positive charge, but in a different direction.  Instead of being orthogonal to the dipole, let's look parallel to it.  Well, in this case, d plus remains the same.  It is this distance d. But now d minus is a bit simpler looking.  It is d plus r, the separation distance in the dipole.  Now again, factoring out a kq over d, we get a term on the right hand side that is  of the form, one over one plus r over d. We can expand this out using, if we like,  the binomial series with alpha equal negative one, or what that really is, the  geometric series. For 1 over 1 minus x, with x being equal  to negative r over d. Writing out the first two terms of that  series, as well, we get 1 minus r over d. The ones cancel, just as before.  And we see that up to the leading order term, our electrostatic potential is kq  over d times r over d. Now, notice how different that is from  before. By using different series, we see that  the leading order terms in the electrostatic potential differ depending  on how you are oriented with respect to the dipole.  Inline potential is much stronger than orthogonal.  This is just one example of how we can use different series in order to get a  handle on various physical phenomena by expanding, ignoring the higher order  terms and retaining the leading behavior.  \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "Core Homework: Convergence",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/xoWWg/core-homework-convergence"
+            ],
+            [
+              "Challenge Homework: Convergence Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/YPnIT/challenge-homework-convergence"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n19",
+              "text": "Convergence",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m3-l3",
+              "rationale": "Convergence is introduced early in the course because understanding whether a series converges is fundamental to all calculus applications, allowing students to distinguish which series can be summed or manipulated further."
+            },
+            {
+              "id": "n20",
+              "text": "Geometric Series",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m3-l3",
+              "rationale": "The concept of Geometric Series serves as a foundational model for understanding series, providing a concrete example where convergence can be easily computed and understood, justifying its introduction following the core concept of convergence."
+            },
+            {
+              "id": "n21",
+              "text": "Domain of Convergence",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3",
+              "rationale": "Understanding the domain of convergence for series like Taylor expansions is crucial in practical applications it's introduced with Taylor Polynomials to emphasize the limitations of series approximations."
+            },
+            {
+              "id": "n22",
+              "text": "Taylor Polynomials",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3",
+              "rationale": "Taylor Polynomials are introduced to illustrate how functions can be approximated with series, preparing students to explore the advantages and limitations of such approximations, a key bridge to the study of Taylor Series."
+            },
+            {
+              "id": "n23",
+              "text": "Arctan Function",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3",
+              "rationale": "The Taylor Series for the Arctan Function offers a complex, real-world example that challenges students to apply their knowledge of Taylor Polynomials and series manipulation, leveraging the realistic complexity to deepen understanding."
+            },
+            {
+              "id": "n24",
+              "text": "Binomial Series",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m3-l3",
+              "rationale": "Introducing the Binomial Series alongside practical applications, such as in electrostatics, helps learners understand its utility and constraints, reinforcing the concept with relatable, applied examples."
+            },
+            {
+              "id": "n25",
+              "text": "Expansion Point",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m3-l3",
+              "rationale": "The Expansion Point is highlighted as a key aspect of Taylor Series calculations because it dictates the accuracy and utility of the series approximation, and students need to grasp its importance early in exploring Taylor Polynomials."
+            },
+            {
+              "id": "n26",
+              "text": "Definition of Convergence and Importance for Series",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3",
+              "rationale": "This explanation builds foundational understanding of why convergence is critical in calculus, introduced to solidify the student's conceptual grasp ensuring they appreciate series' behavior in different contexts."
+            },
+            {
+              "id": "n27",
+              "text": "Inadequacy of Taylor Series for All Functions",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m3-l3",
+              "rationale": "Highlighting the inadequacy of Taylor Series for some functions forces students to grapple with the limitations of mathematical models, crucial for developing a more nuanced and critical understanding of calculus."
+            },
+            {
+              "id": "n28",
+              "text": "Existence of Series That Do Not Converge",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m3-l3",
+              "rationale": "This explanation illustrates the contrast with converging series which is crucial for students to develop a comprehensive understanding of series behavior and identifying limitations."
+            },
+            {
+              "id": "n29",
+              "text": "Convergence of a Geometric Series",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3"
+            },
+            {
+              "id": "n30",
+              "text": "Example of a Converging Series: Sum of 1 + 1/2 + 1/4 + 1/8",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3"
+            },
+            {
+              "id": "n31",
+              "text": "Explanation of Why 1 + 1 + 1... (x = 1) Does Not Converge",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m3-l3"
+            },
+            {
+              "id": "n32",
+              "text": "Arithmetic Derivation of Geometric Series Formula",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m3-l3",
+              "rationale": "The arithmetic derivation of the geometric series formula is taught to deepen students\u2019 understanding of geometric series, offering a concrete derivational tool to reinforce theoretical knowledge."
+            },
+            {
+              "id": "n33",
+              "text": "Manipulation of Series Within Domain of Convergence",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3",
+              "rationale": "Teaching manipulation of series within their domain of convergence helps students understand and apply theoretical concepts to real calculations, preparing them for complex applications in calculus."
+            },
+            {
+              "id": "n34",
+              "text": "Taylor Series of Log(1+x)",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3",
+              "rationale": "The Taylor Series of Log(1+x) is introduced as a specific case study to illustrate how Taylor expansions approximate logarithmic functions, linking directly to the concept of the domain of convergence."
+            },
+            {
+              "id": "n35",
+              "text": "Example Convergence Domain for Log Series (x = -1 to 1)",
+              "type": "example",
+              "difficulty": "high",
+              "lesson_id": "m3-l3"
+            },
+            {
+              "id": "n36",
+              "text": "Converting Non-converging Series Example",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m3-l3"
+            },
+            {
+              "id": "n37",
+              "text": "Example: Taylor Series for the Arctan Function",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3",
+              "rationale": "This example is provided to illustrate practical calculations, making abstract the concept of Taylor Series tangible and relevant, particularly highlighting the role of convergence and expansion point."
+            },
+            {
+              "id": "n38",
+              "text": "Example Application of Binomial Series in Electrostatics",
+              "type": "example",
+              "difficulty": "high",
+              "lesson_id": "m3-l3",
+              "rationale": "This example showcases a real-world application, providing context that helps learners see the practical value of mastering binomial series, thus solidifying theoretical knowledge with practical relevance."
+            },
+            {
+              "id": "n39",
+              "text": "Core Homework: Convergence",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3"
+            },
+            {
+              "id": "n40",
+              "text": "Challenge Homework: Convergence Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m3-l3"
+            }
+          ],
+          "edges": [
+            {
+              "source": "n19",
+              "target": "n20",
+              "type": "prerequisite",
+              "confidence": 0.9,
+              "rationale": "Understanding the concept of convergence is crucial before studying series like the geometric series since it underpins the entire notion of series summation and the conditions under which they converge to a sum."
+            },
+            {
+              "source": "n26",
+              "target": "n19",
+              "type": "elaborate",
+              "confidence": 1.0,
+              "rationale": "The concept of convergence is foundational for series, and providing a detailed definition ensures clarity on how a series approaches a limit or if it does at all."
+            },
+            {
+              "source": "n19",
+              "target": "n1",
+              "type": "prerequisite",
+              "confidence": 0.8
+            },
+            {
+              "source": "n20",
+              "target": "n32",
+              "type": "elaborate",
+              "confidence": 0.9,
+              "rationale": "Elaborating on how the formula for a geometric series is derived arithmetically provides deeper understanding and aids in solidifying the core concept of geometric series."
+            },
+            {
+              "source": "n19",
+              "target": "n28",
+              "type": "elaborate",
+              "confidence": 0.85,
+              "rationale": "Once students understand convergence, it is important to explore counterexamples to deepen comprehension of the boundaries and limitations of convergence."
+            },
+            {
+              "source": "n27",
+              "target": "n1",
+              "type": "elaborate",
+              "confidence": 0.9
+            },
+            {
+              "source": "n20",
+              "target": "n29",
+              "type": "elaborate",
+              "confidence": 0.95,
+              "rationale": "Elaborating on why and how a geometric series converges provides students with specific insights into the conditions of convergence for this class of series, reinforcing theoretical understanding through practical demonstration."
+            },
+            {
+              "source": "n30",
+              "target": "n29",
+              "type": "apply",
+              "confidence": 0.9,
+              "rationale": "Applying a tangible example of a converging series demonstrates the concept concretely, allowing students to visualize and understand the idea of convergence in action."
+            },
+            {
+              "source": "n22",
+              "target": "n33",
+              "type": "apply",
+              "confidence": 0.8,
+              "rationale": "Applying manipulation of Taylor polynomials within their convergence domain ensures understanding of their practical and accurate application within defined constraints."
+            },
+            {
+              "source": "n34",
+              "target": "n21",
+              "type": "relate",
+              "confidence": 0.9,
+              "rationale": "Relating the Taylor series with its specific domain of convergence clarifies the limits within which the series is valid, highlighting the importance of understanding constraints in mathematical modeling."
+            },
+            {
+              "source": "n24",
+              "target": "n38",
+              "type": "apply",
+              "confidence": 0.85,
+              "rationale": "Applying the binomial series in a concrete context like electrostatics allows for appreciation of its utility in real-world scenarios and interdisciplinary applications."
+            },
+            {
+              "source": "n1",
+              "target": "n34",
+              "type": "elaborate",
+              "confidence": 0.9
+            }
+          ]
+        },
+        {
+          "lesson_id": "m3-l4",
+          "title": "Expansion Points",
+          "scale": "lesson",
+          "items": [
+            [
+              "Expansion Points",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to calculus. I'm Professor Greist.  We're about to begin Lecture 6 on Expression Points.  We've seen that the Taylor series provides a good approximation to a  function near zero. What happens if we wish to focus our  attention at some other point. In this lesson, we'll consider changing  the expansion point. This will lead us to a broader definition  and interpretation of Taylor series. As we have seen, Taylor expansion gives  an excellent way to approximate a function for inputs near zero.  However, in many applications, zero is not the most interesting input that you  can think of. Many examples of this, besides finance  and economics, where we care about nonzero values.  What would be nice is a way to Taylor-expand a function that works well  for inputs that are not necessarily close to zero.  There certainly is. This is an important definition.  The Taylor series of f at x equals a, is the sum, k goes from 0 to infinity, the  kth derivative of f, evaluated at a, divided by k factorial times quantity x  minus a to the k. This is not a polynomial in x, but rather  a polynomial in the quantity x minus a, where the coefficient in front of each  monomial term is the kth derivative of f evaluated at a, and then divided by k  factorial. A little bit of terminology is in order.  The constant term is called the zeroth order term.  Next, comes the first order term, the second order term, the third order term,  and so on. These correlate to the degree of the  quantity x minus a. If we were to change things, perform the  change of variables defining h to be the quantity x minus a.  Then the above series would become a polynomial series in h.  However, it would not be giving you f of h, but rather f of x, which is a plus h.  This series in h is telling you that if you want to know values of f that are  close to a, then you can substitute in a small value for h.  And if you're looking for an approximation, you can ignore some of the  higher order terms. Let's look at an example.  Compute the Taylor series of log of x. Now, we know that we cannot do that about  x equals 0. So let us do it about a more natural  value. Let's say about x equals 1.  To compute this Taylor expansion, we're going to need to start taking some  derivatives. If we looked at the function log of x,  the zeroth order term is obtained by evaluating at x equals 1, and that gives  us, simply 0. The derivative of log of x, you may  recall is one over x. Evaluating that of x equals 1 gives us a  coefficient 1. Now, taking the derivative of one over x,  gives us minus x to the negative 2. We evaluate that and continue  differentiating. As we go, evaluating each term at x  equals 1. After computing sufficiently many  derivatives, you start to see a pattern. It requires a little bit of thinking, and  a particularly formal way of thinking called induction.  But, with a bit of effort, one can conclude that the kth derivative of log  of x is negative 1 to the k plus 1 times k minus 1 factorial times x to the  negative k. Evaluating that at x equals 1 gives us  simply the coefficient, negative one to the k plus 1 times k minus 1 factorial.  Now, to get the full Taylor Series, we need to divide this coefficient by k  factorial. In so doing, we see a not too unfamiliar  series. For log of x as x minus 1, minus x minus  1 squared over 2, plus x minus 1 cubed over 3, et cetera.  The coefficient in front of the degree k term is negative 1 to the k plus 1, over  k. And our summation goes from 1 to  infinity. Indeed, if we let h be x minus 1, then we  obtain the very familiar series, log of 1 plus h equals sum k goes from 1 to  infinity, negative 1 to the k plus 1, h to the k over k.  We've seen that before with an x instead of an h, but it works the same.  Do keep in mind that Taylor Series are not guaranteed to converge everywhere.  Indeed, if we look at the terms for log of x and take a finite Taylor polynomial,  then the higher and higher degree terms only provide a reasonable approximation  to log of x within the domain of convergence.  We know from our last lesson that that domain is going to be for values of x  between 0 and 2. Outside of that, these terms are  providing worse and worse approximations of log of x.  What do we do if we want to approximate log of x outside of this domain?  Well, you need to do a Taylor expansion about a different point, someplace close  to where you want to approximate. It's a bit easy to get confused with all  of the different notation associated with Taylor series.  So, let's review. One way to think about the Taylor  expansion about x equals a is to write f of x as a series in the quantity x minus  a. Another way to do it is to write it as a  series in the quantity h, where h is equal to x minus a.  In which case, you're coming up with an approximation for f of a plus h.  One way to think about this is that the more derivatives of f you know at a point  a, the better an approximation you get at x or at a plus h.  This is a perspective that you're going to want to keep with you for the  remainder of this course. The principle is that successive  polynomial truncations of the Taylor series approximate increasingly well.  We've seen that before. In this lesson, the point is that where  you do the Taylor expansion matters. If you are expanding way over here and  trying to get information about way over there, then you're going to need a lot of  derivatives to do that. On the other hand, if you approximate  about the correct expansion point, you might not need so many derivatives in  order to get the job done. Let's look at an explicit example.  What would it take to estimate the square root of 10?  Well, we would have to look at the Taylor series of the function square root of x.  If we expand that about a point, x equals a, then I'll leave it to you that the  first few derivatives work out to a Taylor series of root a plus one over 2  root a times quantity x minus a minus 1 over 8, times the square root of a cubed,  times quantity x minus a squared plus some higher-order terms in x minus a.  Well, to compute the square root of 10, what are we going to do?  Let's say I expand about 1 because 1 is a simple value.  I know the square root of 1, that is simply 1.  That makes the coefficients of the Taylor expansion easy to compute.  On the other hand, when I'm actually trying to estimate the square root of 10,  based on this, then I get 1 plus one half times 9 minus one eighth times 9 squared  or 81, plus higher order terms. How good of an approximation is that?  Well, that gives me a value of negative 4.125.  Now, I know this is not the square root we're looking for.  That is a bad approximation. So, what if we were to compute an  expansion about x equals 9? Then, this is something for which I also  know the square root. The square root of 9 is 3.  The coefficients are easy to work with. And if I plug in a value of x equals 10  into this Taylor series, I get an approximation of 3 plus one sixth minus 1  over 216. This gives an approximation of 3.1620  some other stuff. The true answer agrees with this up to  the first four digits. The expansion point, in this case,  certainly matters. Now, one thing to be cautious of, is that  if you're computing a Taylor series of a composition, you must expand about the  correct values. If you have a function, f composed with  g, and you want to expand it about some input x.  Then, you must expand g about x. But you must expand f, not about x, but  about g of x. And it is that term in particular that  causes problems. In an explicit example, we'll be able to  see how this works. Compute the Taylor series of e to the  cosine of x about x equals zero. Well, even the cosine x is a composition.  What do you what do you do first? First, you take the cosine of x, then you  exponentiate it. If we are to compute the Taylor series  about x equals 0, then we must expand cosine about 0, but not e to the X.  Cosine of X about 0 is very simple. This one, we know.  However, for the second term, the exponential, we must expand that about an  input of 1 because that is what gets fed into it.  Cosine of 0 is 1. Well, the Taylor series of e to the u  about u equals 1 is easy to compute. There's nothing difficult there.  However, what we must then do is substitute into it this series for cosine  of x. That is u is 1 minus x squared over 2  plus x to the 4th over 4 factorial plus higher ordered terms.  That is [COUGH] a little bit too much algebra to fit on this slide, and so I'll  leave you to do that. Though I might point out a little bit of  help here, that this can be rewritten as e times e to the cosine of x minus 1.  You'll find that to be a little bit easier to compute the Taylor series of.  This lesson marks the end of our introduction to Taylor series.  But by no means does it mark the end of our use of Taylor series.  In our next lesson, we will consider one of the primal objects of calculus, the  notion of a limit. And we'll consider it using the  understanding gained from Taylor series.  \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "Core Homework: Expansion Points",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/JfRJm/core-homework-expansion-points"
+            ],
+            [
+              "Challenge Homework: Expansion Points Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/1GgjK/challenge-homework-expansion-points"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n41",
+              "text": "Derivative",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l4",
+              "rationale": "The derivative is introduced as a key concept because understanding derivatives is essential for computing Taylor series, where each term involves derivatives of the function."
+            },
+            {
+              "id": "n42",
+              "text": "Polynomial Truncation",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m3-l4",
+              "rationale": "Polynomial truncation is introduced to help students understand how Taylor series provide approximations, emphasizing which terms can be ignored for close approximations at certain points, thus making problem-solving manageable and practical."
+            },
+            {
+              "id": "n43",
+              "text": "Factorial",
+              "type": "concept",
+              "difficulty": "low",
+              "lesson_id": "m3-l4",
+              "rationale": "Factorial is introduced as a key concept since it plays a crucial role in defining the coefficients of each term in the Taylor series, helping students see the pattern in the expansion."
+            },
+            {
+              "id": "n44",
+              "text": "Taylor Expansion",
+              "type": "method",
+              "difficulty": "medium",
+              "lesson_id": "m3-l4",
+              "rationale": "Taylor Expansion is introduced as a method to approximate functions using series, allowing students to see the step-by-step process of approximation at different points and the significance of derivatives in creating these approximations."
+            },
+            {
+              "id": "n45",
+              "text": "Welcome to calculus. I'm Professor Greist.  We're about to begin Lecture 6 on Expression Points.  We've seen that the Taylor series provides a good approximation to a  function near zero. What happens if we wish to focus our  attention at some other point. In this lesson, we'll consider changing  the expansion point. This will lead us to a broader definition  and interpretation of Taylor series. As we have seen, Taylor expansion gives  an excellent way to approximate a function for inputs near zero.  However, in many applications, zero is not the most interesting input that you  can think of. Many examples of this, besides finance  and economics, where we care about nonzero values.  What would be nice is a way to Taylor-expand a function that works well  for inputs that are not necessarily close to zero.  There certainly is. This is an important definition.  The Taylor series of f at x equals a, is the sum, k goes from 0 to infinity, the  kth derivative of f, evaluated at a, divided by k factorial times quantity x  minus a to the k. This is not a polynomial in x, but rather  a polynomial in the quantity x minus a, where the coefficient in front of each  monomial term is the kth derivative of f evaluated at a, and then divided by k  factorial. A little bit of terminology is in order.  The constant term is called the zeroth order term.  Next, comes the first order term, the second order term, the third order term,  and so on. These correlate to the degree of the  quantity x minus a. If we were to change things, perform the  change of variables defining h to be the quantity x minus a.  Then the above series would become a polynomial series in h.  However, it would not be giving you f of h, but rather f of x, which is a plus h.  This series in h is telling you that if you want to know values of f that are  close to a, then you can substitute in a small value for h.  And if you're looking for an approximation, you can ignore some of the  higher order terms.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m3-l4"
+            },
+            {
+              "id": "n46",
+              "text": "Compute the Taylor series of log of x. Now, we know that we cannot do that about  x equals 0. So let us do it about a more natural  value. Let's say about x equals 1.  To compute this Taylor expansion, we're going to need to start taking some  derivatives. If we looked at the function log of x,  the zeroth order term is obtained by evaluating at x equals 1, and that gives  us, simply 0. The derivative of log of x, you may  recall is one over x. Evaluating that of x equals 1 gives us a  coefficient 1. Now, taking the derivative of one over x,  gives us minus x to the negative 2. We evaluate that and continue  differentiating. As we go, evaluating each term at x  equals 1. After computing sufficiently many  derivatives, you start to see a pattern. It requires a little bit of thinking, and  a particularly formal way of thinking called induction.  But, with a bit of effort, one can conclude that the kth derivative of log  of x is negative 1 to the k plus 1 times k minus 1 factorial times x to the  negative k. Evaluating that at x equals 1 gives us  simply the coefficient, negative one to the k plus 1 times k minus 1 factorial.  Now, to get the full Taylor Series, we need to divide this coefficient by k  factorial. In so doing, we see a not too unfamiliar  series. For log of x as x minus 1, minus x minus  1 squared over 2, plus x minus 1 cubed over 3, et cetera.  The coefficient in front of the degree k term is negative 1 to the k plus 1, over  k. And our summation goes from 1 to  infinity. Indeed, if we let h be x minus 1, then we  obtain the very familiar series, log of 1 plus h equals sum k goes from 1 to  infinity, negative 1 to the k plus 1, h to the k over k.  We've seen that before with an x instead of an h, but it works the same.  Do keep in mind that Taylor Series are not guaranteed to converge everywhere.  Indeed, if we look at the terms for log of x and take a finite Taylor polynomial,  then the higher and higher degree terms only provide a reasonable approximation  to log of x within the domain of convergence.  We know from our last lesson that that domain is going to be for values of x  between 0 and 2. Outside of that, these terms are  providing worse and worse approximations of log of x.",
+              "type": "example",
+              "difficulty": "high",
+              "lesson_id": "m3-l4"
+            },
+            {
+              "id": "n47",
+              "text": "Compute the Taylor series of e to the  cosine of x about x equals zero. Well, even the cosine x is a composition.  What do you what do you do first? First, you take the cosine of x, then you  exponentiate it. If we are to compute the Taylor series  about x equals 0, then we must expand cosine about 0, but not e to the X.  Cosine of X about 0 is very simple. This one, we know.  However, for the second term, the exponential, we must expand that about an  input of 1 because that is what gets fed into it.  Cosine of 0 is 1. Well, the Taylor series of e to the u  about u equals 1 is easy to compute. There's nothing difficult there.  However, what we must then do is substitute into it this series for cosine  of x. That is u is 1 minus x squared over 2  plus x to the 4th over 4 factorial plus higher ordered terms.  That is [COUGH] a little bit too much algebra to fit on this slide, and so I'll  leave you to do that. Though I might point out a little bit of  help here, that this can be rewritten as e times e to the cosine of x minus 1.  You'll find that to be a little bit easier to compute the Taylor series of.",
+              "type": "example",
+              "difficulty": "high",
+              "lesson_id": "m3-l4"
+            },
+            {
+              "id": "n48",
+              "text": "Core Homework: Expansion Points",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m3-l4"
+            },
+            {
+              "id": "n49",
+              "text": "Challenge Homework: Expansion Points Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m3-l4"
+            }
+          ],
+          "edges": [
+            {
+              "source": "n1",
+              "target": "n44",
+              "type": "elaborate",
+              "confidence": 0.9
+            },
+            {
+              "source": "n41",
+              "target": "n1",
+              "type": "prerequisite",
+              "confidence": 0.8
+            },
+            {
+              "source": "n48",
+              "target": "n44",
+              "type": "assess",
+              "confidence": 0.8,
+              "rationale": "Assessing students' understanding of Taylor Expansion is critical after introducing the concept to ensure they can apply it in different contexts and identify the correct expansion points based on given functions."
+            },
+            {
+              "source": "n49",
+              "target": "n44",
+              "type": "assess",
+              "confidence": 0.9,
+              "rationale": "This assessment aims to deepen students' understanding of Taylor Expansion by challenging them with more difficult problems that build on the basic concept, encouraging mastery beyond initial applications."
+            },
+            {
+              "source": "n21",
+              "target": "n1",
+              "type": "relate",
+              "confidence": 0.7
+            },
+            {
+              "source": "n43",
+              "target": "n41",
+              "type": "prerequisite",
+              "confidence": 0.6,
+              "rationale": "Factorials are essential for understanding Taylor series coefficients, which involve derivatives divided by factorials. This knowledge is necessary before students can grasp how derivatives fit into the framework of Taylor Series."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "module_id": "m4",
+      "title": "Limits and Asymptotics",
+      "lessons": [
+        {
+          "lesson_id": "m4-l1",
+          "title": "Limits",
+          "scale": "lesson",
+          "items": [
+            [
+              "Limits",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to Calculus. I'm Professor Greist.  We're about to begin Lecture 7 on Limits. >> In many respects, calculus can be  defined as the mathematics of limits. In this lesson we'll review the concept  definition of a limit. Consider a few examples and see that one  of the most effective tools for computing a limit involves Taylor series.   >> In your previous exposure to calculus, you have certainly seen limits.  But what does it mean to say the limit, as x approaches a of f of x equals L.  Well, I'm sure you have an image in your head, that as x gets closer and closer to  a, f of x gets closer and closer to L. Perhaps you remember that it doesn't  matter whether you approach from the left Left or from the right.  Perhaps you remember that it doesn't matter what the actual value of the  function is at x equals a. What matters is the limit.  Well this picture is the intuition behind the limit, but it is not the definition.  The definition is another thing all together.  What is it? The limit of f of x, as x goes to a,  equals L. If, and only if, for every epsilon  greater than 0 there exists some delta greater than 0.  Such that, whenever x not equal a is within delta of a, then f of x is within  epsilon of L. That is a bit of a mouthful, and a lot of  students have difficulty with it. Why?  Because as a logical statement, it is complex.  As a grammatical statement, it is complex.  How does one make sense of this? Well, a picture is not a bad way to go.  If we think of L as a target that we are trying to hit, then we are allowed some  tolerance on the output. This tolerance is in the form of an  epsilon. You have to get within epsilon of L.  Using your function, you can set the input to be as close to a as you like.  But there's going to be some tolerance on the input.  Some degree of error that is bounded by delta.  In order to have the limit of f of x as x approaches a equals L, then anything  within the input tolerance has to hit the target within the output tolerance.  This must be true no matter how small the output tolerance epsilon is.  You can find some sufficiently small input tolerance to guarantee always  striking within range of the limit. In the context of an actual function f,  one can visualize this delta epsilon definition as follows.  You choose an output tolerance, epsilon. Then, there must be some input tolerance,  delta, so that any input within delta of a has an output within epsilon of L.  Now, many students get confounded here, trying to find the optimal delta.  It does not need to be optimal. You can choose something smaller, that is  not a problem. The critical part of the definition is,  that as you change epsilon, you need to be able to update delta.  If you make epsilon smaller still and decrease your level of acceptable error  on the output, you need to find some amount of acceptable error on the input.  And this has to continue for every possible non-zero value of epsilon.  That is what captures what the limit is. This view of the definition is extendable  to other context. Consider the limit as x goes to infinity  of f of x. What does it mean for that to be equal to  L? Well, we're going to think about infinity  as something like an end point to the real line, modifying its topology so that  it looks like a closed interval. Now, this is a dangerous thing to do if  you don't know what you're doing. But let's think about it from the  perspective of our interpretation of a limit.  Given any output tolerance, epsilon, there must be some tolerance on the input  that guarantees striking within epsilon of L.  Now, how do we take a neighborhood of infinity?  How do we talk about a tolerance on that input.  Well, what it becomes in this context is sum lower bound M, so that, whenever your  input is greater than M, then your output is within epsilon of L.  As before, this must be true no matter what epsilon you choose.  If you make your tolerances on the output, tighter and tighter, then, we can  make the tolerances on the input tighter and tighter.  In this case, instead of talking about being within delta of infinity, since we  are only looking at a one sided limit. We can speak in terms of an explicit  lower bound on x, the same intuition and picture holds.  To be sure, not all limits exist. Not all functions, well behaved.  There are several ways in which things can go wrong.  You could have a discontinuity at a function.  The limit would not exist at that point. You could have what is called a blow up,  that is the function goes to infinity as x gets closer and closer to a.  Or, worse still, the limit can fail to exist because of an oscillation, where  the function oscillates so badly that the limit at a does not exist.  On the other hand, most of the time you're not going to have to worry about  this because most functions are continuous.  And we say that f is continuous at an input a, if the limit, as x goes to a, of  f of x exists and equals f at a. We say that f is continuous everywhere.  If this statement is true for all inputs a in the domain.  Now most of the functions that we're used to seeing are continuous functions and  one doesn't have to worry so much about limits in this case.  There's a bit of a technicality. One has to be very explicit about which  points are in the domain of the function. Some functions which look discontinuous  may actually be continuous. If the discontinuous looking point is not  actually in the domain, if however, the function is defined there, then, the  discontinuity presents itself. There are certain rules associated with  limits that you may know by hand, even if you don't remember them.  If the limit of f of x, as x approaches a, and the limit of g of x, as x  approaches a, both exist, then the following rules are in effect.  There's a summation rule that the limit of the sum of f plus g is, in fact, the  sum of the limits. There is, likewise, a product rule, that  the limit of the product of f and g is, in fact, the product of the limits.  There is, likewise, a quotient rule, that the limit of f divided by g is the limit  of f divided by the limit of g. Now, at this point, you've gotta be a bit  careful if that denominator is zero. Well, then this limit may not exist.  There's, likewise, a chain rule or a composition rule that says the limit of f  composed with g, as x go to a, can be realized as f of the limit of g as x  approaches a. Now once again, this too has some  conditions. f, in this case, needs to be continuous  at the appropriate point in order for this to hold.  Now, at this point, I think we're going to have a little quiz to test your  knowledge of limits. What is the limit, as x approaches zero,  of sine of x over x? And this is a quotient.  Can we apply our quotient rule for limits?  No, I'm afraid we cannot because the denominator is going to 0 and so is the  numerator and 0 over 0 presents some difficulties.  Now, I bet that most of you know the answer is 1 but why do you know this?  Well, you may say, I remember this. This is something that I had to memorize  when I took high school calculus very useful on exams, I just know it.  Well, that's not a very satisfying answer is it?  Some of you may say, I wield the mighty sword of L'Hopital's Rule and I know that  if I differentiate the top and the bottom, then I get one.  That's great, and I'm glad you remember L'hopital's rule.  But do you know why it works? Do you have a good reason for your belief  in this rule? Well, if not, then let's take a method  that we do trust. Namely, Taylor series.  If we consider the limit, as x goes to 0 of sine of x over x.  We know what sin of x is. That's x minus x cubed over 3 factorial  plus higher ordered terms. Now, thinking of this, as we do, as a  long polynomial. What are we tempted to do?  Well, I look at that and say hey, we could factor out an x, from the numerator  and cancel that with the x in the denominator.  Yielding the limit as x goes to 0, of 1 minus x squared over 3 factorial plus  higher order terms in x. Sending x to 0 gives us an answer of 1,  and the limit makes perfect sense. Likewise, you might recall, that the  limit as x goes to zero of 1 minus cosine of x over x, is, now what was what?  Oh well, I don't remember, but I do remember what cosine of x is.  And I note that here, the ones cancel. And I'm left with the limit of x squared  over two factorial minus x to the fourth over 4 factorial, plus higher order  terms. When I divide that by x, I get the limit  of x over 2 factorial, minus x cubed over 4 factorial, plus higher ordered terms.  There's no 0 over 0 ambiguity any more. This limit is precisely 0.  Now, one of the wonderful things about this Taylor series approach to limits is  that it works even in cases where you might not have memorized the limit and  where the limit is, indeed, not so obvious.  Well, let's look at the cube root of 1 plus 4x minus 1 over the fifth root of 1  plus 3x minus 1. It is clear that evaluating at zero is  not going to work, that yields 0 over 0. So, what do we do?  Well, rewriting this a little bit allows us to use the binomial series.  With alpha equal one third in the numerator, and one fifth in the  denominator. Applying that gives us 1 plus one third  times 4x plus higher order terms. Subtract 1.  In the denominator 1 plus one fifth times three x plus higher of order terms,  subtract 1. Those subtractions, get rid of the  constant terms, were left with terms that all have an x in them.  We factor that out, and then the leading order terms are four thirds in the  numerator and 3 5ths in the denominator. Yielding an answer of 20 9ths.  That is beautiful. >> There's a vast gulf between knowing  how to compute something and knowing what that thing is.  The question of evaluating or computing a limit is subtle.  And it weaves its way throughout this course.  In our next lesson, we're going to consider one of the primary tools for  evaluating limits. That of L'Hopital's rule.  [BLANK_AUDIO].  \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "Core Homework: Limits",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/ALceH/core-homework-limits"
+            ],
+            [
+              "Challenge Homework: Limits Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/NKIX3/challenge-homework-limits"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n1",
+              "text": "Calculus",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n2",
+              "text": "Limits",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1",
+              "rationale": "Limits are introduced early in the course because they form the foundation for understanding continuous behavior and change, which are essential for more advanced topics like derivatives and integrals."
+            },
+            {
+              "id": "n3",
+              "text": "Taylor Series",
+              "type": "method",
+              "difficulty": "high",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n4",
+              "text": "Limit of f of x, as x approaches a, equals L if, and only if, for every epsilon greater than 0 there exists some delta greater than 0 such that, whenever x not equal a is within delta of a, then f of x is within epsilon of L.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n5",
+              "text": "If we think of L as a target that we are trying to hit, then we are allowed some tolerance on the output. This tolerance is in the form of an epsilon. You have to get within epsilon of L. Using your function, you can set the input to be as close to a as you like. But there's going to be some tolerance on the input. Some degree of error that is bounded by delta. In order to have the limit of f of x as x approaches a equals L, then anything within the input tolerance has to hit the target within the output tolerance. This must be true no matter how small the output tolerance epsilon is. You can find some sufficiently small input tolerance to guarantee always striking within range of the limit.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n6",
+              "text": "In the context of an actual function f, one can visualize this delta epsilon definition as follows. You choose an output tolerance, epsilon. Then, there must be some input tolerance, delta, so that any input within delta of a has an output within epsilon of L.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n7",
+              "text": "Many students get confounded here, trying to find the optimal delta. It does not need to be optimal. You can choose something smaller, that is not a problem. The critical part of the definition is, that as you change epsilon, you need to be able to update delta. If you make epsilon smaller still and decrease your level of acceptable error on the output, you need to find some amount of acceptable error on the input. And this has to continue for every possible non-zero value of epsilon. That is what captures what the limit is.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n8",
+              "text": "Consider the limit as x goes to infinity of f of x. What does it mean for that to be equal to L? Well, we're going to think about infinity as something like an end point to the real line, modifying its topology so that it looks like a closed interval. Now, this is a dangerous thing to do if you don't know what you're doing. But let's think about it from the perspective of our interpretation of a limit. Given any output tolerance, epsilon, there must be some tolerance on the input that guarantees striking within epsilon of L. Now, how do we take a neighborhood of infinity? How do we talk about a tolerance on that input. Well, what it becomes in this context is some lower bound M, so that, whenever your input is greater than M, then your output is within epsilon of L. As before, this must be true no matter what epsilon you choose. If you make your tolerances on the output, tighter and tighter, then, we can make the tolerances on the input tighter and tighter. In this case, instead of talking about being within delta of infinity, since we are only looking at a one sided limit. We can speak in terms of an explicit lower bound on x, the same intuition and picture holds.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n9",
+              "text": "Not all limits exist. Not all functions, well behaved. There are several ways in which things can go wrong. You could have a discontinuity at a function. The limit would not exist at that point. You could have what is called a blow up, that is the function goes to infinity as x gets closer and closer to a. Or, worse still, the limit can fail to exist because of an oscillation, where the function oscillates so badly that the limit at a does not exist.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n10",
+              "text": "We say that f is continuous at an input a, if the limit, as x goes to a, of f of x exists and equals f at a. We say that f is continuous everywhere. If this statement is true for all inputs a in the domain. Now most of the functions that we're used to seeing are continuous functions and one doesn't have to worry so much about limits in this case. There's a bit of a technicality. One has to be very explicit about which points are in the domain of the function. Some functions which look discontinuous may actually be continuous. If the discontinuous looking point is not actually in the domain, if however, the function is defined there, then, the discontinuity presents itself.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n11",
+              "text": "If the limit of f of x, as x approaches a, and the limit of g of x, as x approaches a, both exist, then the following rules are in effect. There's a summation rule that the limit of the sum of f plus g is, in fact, the sum of the limits. There is, likewise, a product rule, that the limit of the product of f and g is, in fact, the product of the limits. There is, likewise, a quotient rule, that the limit of f divided by g is the limit of f divided by the limit of g. Now, at this point, you've gotta be a bit careful if that denominator is zero. Well, then this limit may not exist. There's, likewise, a chain rule or a composition rule that says the limit of f composed with g, as x go to a, can be realized as f of the limit of g as x approaches a. Now once again, this too has some conditions. f, in this case, needs to be continuous at the appropriate point in order for this to hold.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n12",
+              "text": "What is the limit, as x approaches zero, of sine of x over x?",
+              "type": "example",
+              "difficulty": "high",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n13",
+              "text": "This is a quotient. Can we apply our quotient rule for limits? No, I'm afraid we cannot because the denominator is going to 0 and so is the numerator and 0 over 0 presents some difficulties. Now, I bet that most of you know the answer is 1 but why do you know this? Well, you may say, I remember this. This is something that I had to memorize when I took high school calculus very useful on exams, I just know it. Well, that's not a very satisfying answer is it? Some of you may say, I wield the mighty sword of L'Hopital's Rule and I know that if I differentiate the top and the bottom, then I get one. That's great, and I'm glad you remember L'hopital's rule. But do you know why it works? Do you have a good reason for your belief in this rule? Well, if not, then let's take a method that we do trust. Namely, Taylor series.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n14",
+              "text": "Limit, as x goes to 0 of sine of x over x. We know what sin of x is. That's x minus x cubed over 3 factorial plus higher ordered terms. Now, thinking of this, as we do, as a long polynomial. What are we tempted to do? Well, I look at that and say hey, we could factor out an x, from the numerator and cancel that with the x in the denominator. Yielding the limit as x goes to 0, of 1 minus x squared over 3 factorial plus higher order terms in x. Sending x to 0 gives us an answer of 1, and the limit makes perfect sense.",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n15",
+              "text": "Limit, as x goes to zero of 1 minus cosine of x over x. I don't remember, but I do remember what cosine of x is. And I note that here, the ones cancel. And I'm left with the limit of x squared over two factorial minus x to the fourth over 4 factorial, plus higher order terms. When I divide that by x, I get the limit of x over 2 factorial, minus x cubed over 4 factorial, plus higher ordered terms. There's no 0 over 0 ambiguity any more. This limit is precisely 0.",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n16",
+              "text": "Taylor Series Approach to Limits",
+              "type": "method",
+              "difficulty": "high",
+              "lesson_id": "m4-l1",
+              "rationale": "This method is introduced to provide students with an alternative and often more intuitive way to evaluate limits, especially when traditional methods like L'Hopital's Rule are not applicable or are less straightforward."
+            },
+            {
+              "id": "n17",
+              "text": "It works even in cases where you might not have memorized the limit and where the limit is, indeed, not so obvious. Well, let's look at the cube root of 1 plus 4x minus 1 over the fifth root of 1 plus 3x minus 1. It is clear that evaluating at zero is not going to work, that yields 0 over 0. So, what do we do? Well, rewriting this a little bit allows us to use the binomial series. With alpha equal one third in the numerator, and one fifth in the denominator. Applying that gives us 1 plus one third times 4x plus higher order terms. Subtract 1. In the denominator 1 plus one fifth times three x plus higher of order terms, subtract 1. Those subtractions, get rid of the constant terms, were left with terms that all have an x in them. We factor that out, and then the leading order terms are four thirds in the numerator and 3 5ths in the denominator. Yielding an answer of 20 9ths.",
+              "type": "example",
+              "difficulty": "high",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n18",
+              "text": "L'Hopital's Rule",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l1"
+            },
+            {
+              "id": "n19",
+              "text": "Core Homework: Limits",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1",
+              "rationale": "This assessment is introduced to reinforce the fundamental concept of limits and ensure students have a solid understanding before advancing to more complex applications like Taylor Series and derivatives."
+            },
+            {
+              "id": "n20",
+              "text": "Challenge Homework: Limits Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m4-l1",
+              "rationale": "This assessment provides students with the opportunity to apply their knowledge of limits in more complex and non-standard problems, enhancing their problem-solving skills and preparing them for real-world applications."
+            }
+          ],
+          "edges": [
+            {
+              "source": "n2",
+              "target": "n16",
+              "type": "apply",
+              "confidence": 0.95,
+              "rationale": "The Taylor Series Approach is an effective way to handle cases where the limit results in an indeterminate form like 0/0. By expanding functions into their Taylor series, we can simplify the terms and evaluate the limits more easily. This approach assumes that students are familiar with the concept of limits and are ready to apply more advanced techniques such as series expansions."
+            },
+            {
+              "source": "n16",
+              "target": "n12",
+              "type": "elaborate",
+              "confidence": 0.9,
+              "rationale": "This example is used to elaborate on the application of the Taylor Series Approach by providing a specific scenario where evaluating the limit directly involves 0/0, prompting the need to utilize the series expansion of sine to simplify and solve. It assumes that students have a basic grasp of Taylor series and the fundamentals of limits, enabling them to follow the transformations from series to limit evaluations."
+            }
+          ]
+        },
+        {
+          "lesson_id": "m4-l2",
+          "title": "l'H\u00f4pital's Rule",
+          "scale": "lesson",
+          "items": [
+            [
+              "l'H\u00f4pital's Rule",
+              "video",
+              null
+            ],
+            [
+              "Core Homework: l'H\u00f4pital's Rule",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/C2kBR/core-homework-l-hopitals-rule"
+            ],
+            [
+              "Challenge Homework: l'H\u00f4pital's Rule Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/o4LiZ/challenge-homework-l-hopitals-rule"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n21",
+              "text": "l'H\u00f4pital's Rule",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l2"
+            },
+            {
+              "id": "n22",
+              "text": "Core Homework: l'H\u00f4pital's Rule",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m4-l2"
+            },
+            {
+              "id": "n23",
+              "text": "Challenge Homework: l'H\u00f4pital's Rule Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m4-l2"
+            }
+          ],
+          "edges": [
+            {
+              "source": "n22",
+              "target": "n21",
+              "type": "assess",
+              "confidence": 1
+            },
+            {
+              "source": "n23",
+              "target": "n21",
+              "type": "assess",
+              "confidence": 1
+            }
+          ]
+        },
+        {
+          "lesson_id": "m4-l3",
+          "title": "Orders of Growth",
+          "scale": "lesson",
+          "items": [
+            [
+              "Orders of Growth",
+              "video",
+              null
+            ],
+            [
+              "BONUS!",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to Calculus. I'm professor Greist.  And we're about to begin Lecture 9, Bonus Material.  In our main lesson, we considered growth rates of functions and ordered them in a  hierarchy, as x goes to infinity. This led to a language for discussing and  controlling that growth, both as x goes to infinity, and as x goes to 0.  This language is called Big-O. Before we get to that, there's one thing  that we need to reconsider a little bit. One of the things we discussed was the  factorial function or factorial growth. But what exactly do we mean by factorial  functions? What is x factorial when x is not an  integer? Well there is a real definition for it.  It's going to look a little complicated, the definition of x factorial Is the  integral as t goes from zero to infinity, t to the x times e to the minus t dt.  Oh, what in the world is that? Well, we're not going to explain that  now. We'll get to that later in this course,  maybe in Chapter Three. But, for the moment, one thing to know is  that this definition satisfies the property that factorials have, namely  that x factorial equals x times quantity x minus 1 factorial, at least for x  positive. And also, n factorial for an integer  agrees with this definition. Now, I'm not going to prove that now,  we'll talk about that later in the course.  What I want to argue is that this factorial growth beats exponential  growth, in the case where x is an integer, a positive integer.  Then, we get x factorial being the familiar, x times x minus 1 times x minus  2, et cetera. All the way down.  If we look at e to the x, well, this is some number of copies of e multiplied  together. Now for values of x hm, very large, we  see that terms in the numerator and terms in the denominator pair perfectly.  And almost all of the terms in the numerator are much bigger than the terms  in the denominator. And this means that in the limit, as x  goes to infinity, we get something that is infinite.  That means that x factorial grows much faster than e to the x.  If you're curious about this unusual sort of definition, look up information about  the gamma function. We'll return to that a little bit later  in this course. What I'd like to spend some time on is a  bit of discussion about Big-O. How is this language used?  Why is this language Used. It is ubiquitous in Applied Mathematics.  And you're going to see it at various points throughout this course.  So let's take some time and review, and extend what we know.  Recall that a function f is said to be in Big-O in the function g.  If, in the appropriate limit, f, in absolute value is less than g in absolute  value times some constant c, we don't care about what the constant is, we just  want to know that there is some upper bound.  Again, this holds in the limit as x is going to wherever were interested in  looking at. Maybe x is going to zero or maybe x is  going to infinity. One of the reasons Big-O is so useful is  that it forms an efficient language. For example, f is in Big-O of 1 is means  the same thing, as saying that f is bounded in the limit, as x is going to  zero or infinity or whatever, there are other applications as well, real  applications. For example, in computer science one is  often interested in specifying how much effort it takes to execute a certain  algorithm. This is the subject of computational  complexity. Consider the following.  Let's say you have two n digit numbers and you want to multiply them together.  How much work are you going to have to do?  How many individual mathematical computations is that going to take?  Well, let's consider what it takes to multiply two numbers together using the  standard algorithm that you learned in primary school.  And let's count this as a function of n. And consider what happens as n is going  to infinity. To multiply these two numbers together I  need to take each digit of the second number.  And multiply it by the entire first number.  That is n elementary mathematical operations?  Well, maybe it's not n. Maybe we should call it 2n because of the  fact that you have to multiply 6 times 3, 18, write the 8, carry the 1, et cetera.  We'll pick some constant times n. But we need to do that for each of the n  digits in the second number. Now, we're still not done because we need  to take all of those resulting products, and add them together.  And I'll let you try to figure out how much effort is involved in that addition.  It's, you know, some number times n, times [INAUDIBLE] maybe n, maybe n minus  1, I don't know. I'm not a computer scientist.  I'm a mathematician. But neither I nor the computer scientist  needs to worry about these exact constants.  If all we care about is what happens as n is going to infinity, we can say that  this algorithm is in Big-O of n squared. It's going to take a quadratic amount of  effort. So, as your numbers get bigger and  bigger, you're doing a lot more work to multiply them together.  Is there an algorithm that is better, that is, say, n times log n?  Well that is what Big-O is good for. Error analysis in engineering, physics,  other sciences, is another excellent application.  Let's say that you know the kinetic energy of your body is one half the mass  times the velocity squared, but let's say that your measurement of the velocity has  some error associated with it. Epsilon, we'll call that error.  And we'll assume that epsilon is very small.  What is the induced error in our kinetic energy?  Well, of course, if we expand that out, one half mv squared plus m times v times  epsilon plus something that is in Big-O of epsilon squared, what we really care  about is the leading-order term in epsilon.  That is going to dictate what the error to the kinetic energy is, and we can see  that that is really the momentum, m times v in this case.  Now, other examples are relevant to what we began this lesson with.  Let's consider x factorial. We argued that its growth rate is pretty  big, that x factorial is not in Big-O of e to the x.  But we can say more is a wonderfully useful and powerful formula in  mathematics called Stirling's Formula that says exactly how fast x factorial  grows. One form of this says that log of x  factorial equals x times log of x minus x plus some remainder term that is in Big-O  of log of x. Perhaps the stronger version of  Stirling's Formula will be a bit more transparent.  It says that x factorial equals square root of 2 pi x times quantity x over e to  the x power times 1 plus something in Big-O of 1 over x.  Now you don't need to memorize either of these.  They're wonderfully useful in probability in combinatorics in the lots of areas.  But what I want you to see is that the appropriate language for expressing how  fast x factorial grows as x goes to infinity is Big-O.  Pure mathematics uses Big-O as well. If we define the function pi of x to be  the number of prime numbers less than x. Let's restrict to the positive primes of  course and x is going to be, let's say, integer valued.  Doesn't matter. Then, one thing we could say is that the  number of primes is Big-O of x. But that's a vacuous statement.  Not every integer is prime. We'd like some idea of how many primes  there are. Well, of course there are infinitely many  primes. But we'd like to know a bit finer  information. What kind of density do the prime numbers  have within the natural numbers? Well.  we can use the language of Big-O to state the prime number theorem, which says that  pi of x is to leading order x over log of x.  That's not exactly what it is, it's just the leading order term, but pi of x is x  over log x times quantity 1 plus something in Big-O, 1 over log of x.  And that's one example of how this language appears in everything from pure  mathematics to applied mathematics. To the physical and computational  sciences. It'll take a little while to get used to  this language, and it's going to take a bit of practice.  Most students find it a bit unlike things that they've learned in the past, because  of this arbitrary constant. But do a few practice problems and you'll  see Big-O cropping up later in the course.  \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "Core Homework: Orders of Growth",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/ge6ts/core-homework-orders-of-growth"
+            ],
+            [
+              "Challenge Homework: Orders of Growth Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/ehOJH/challenge-homework-orders-of-growth"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n24",
+              "text": "Growth Rates of Functions",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "This concept is introduced early to provide students with a foundation for understanding how different functions behave as their inputs grow, which is essential for analyzing the efficiency of algorithms later in the course."
+            },
+            {
+              "id": "n25",
+              "text": "Hierarchy of Functions",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "Presented immediately after Growth Rates of Functions, this concept helps students categorize functions based on their growth rates, forming a basis for comparing different orders of algorithmic efficiency."
+            },
+            {
+              "id": "n26",
+              "text": "Big-O",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l3"
+            },
+            {
+              "id": "n27",
+              "text": "Factorial Function",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l3",
+              "rationale": "Introduced to explore non-linear growth rates, which set the stage for understanding more complex topics like factorial growth and the comparison to exponential growth."
+            },
+            {
+              "id": "n28",
+              "text": "Factorial Growth",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "This concept emphasizes the rapid increase of factorial functions compared to other types, which is critical for understanding computational limitations and algorithm efficiency."
+            },
+            {
+              "id": "n29",
+              "text": "Integral Definition of x Factorial",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "Provided to offer students an analytical representation of factorial growth that aids in both theoretical understanding and computational application."
+            },
+            {
+              "id": "n30",
+              "text": "Factorial Growth Beats Exponential Growth",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "Introduces the surprising nature of factorial growth surpassing exponential growth to challenge students' intuition and prepare them for analyzing limits and asymptotic behavior."
+            },
+            {
+              "id": "n31",
+              "text": "Gamma Function",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "Introduced to extend the concept of factorials to the complex plane, enhancing the understanding of both continuous extensions and their practical applications in calculus and analysis."
+            },
+            {
+              "id": "n32",
+              "text": "Efficient Language",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m4-l3",
+              "rationale": "Presented alongside discussions of algorithm efficiency to stress the importance of clear and concise notation and communication in mathematical and computational contexts."
+            },
+            {
+              "id": "n33",
+              "text": "Computational Complexity",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "The concept is vital to link the mathematical understanding of functions with practical applications in computer science, particularly in algorithm analysis."
+            },
+            {
+              "id": "n34",
+              "text": "Standard Algorithm for Multiplication",
+              "type": "method",
+              "difficulty": "medium",
+              "lesson_id": "m4-l3",
+              "rationale": "Introduced as a practical application method to illustrate computational complexity, showing how algorithm choices impact performance in real-world computations."
+            },
+            {
+              "id": "n35",
+              "text": "Big-O and Algorithms",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m4-l3",
+              "rationale": "Explains how Big-O notation is used to describe the efficiency of algorithms, providing a formal mechanism for comparing their growth rates and complexity."
+            },
+            {
+              "id": "n36",
+              "text": "Error Analysis",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l3",
+              "rationale": "Introduced to help students understand how small inaccuracies in calculations can compound in iterative processes, directly linking theoretical mathematics with practical computation."
+            },
+            {
+              "id": "n37",
+              "text": "Kinetic Energy and Error Induction",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m4-l3",
+              "rationale": "This example illustrates how error can propagate in physical systems, which parallels its potential compounding effect in computational algorithms."
+            },
+            {
+              "id": "n38",
+              "text": "Stirling's Formula",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "Provides an approximation for factorials that is introduced to demonstrate more advanced techniques for estimating functions, enhancing both analytical insight and computational efficiency."
+            },
+            {
+              "id": "n39",
+              "text": "The Growth Rate of x Factorial",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "This explanation builds on basic factorial concepts to address students' understanding of asymptotic growth, setting the groundwork for deeper analyses in both pure and applied mathematics."
+            },
+            {
+              "id": "n40",
+              "text": "Prime Number Theorem",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "Introduced to connect the density of prime numbers to growth rates, providing an example of how abstract mathematical concepts can illuminate number theory and algorithms."
+            },
+            {
+              "id": "n41",
+              "text": "Density of Prime Numbers",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l3",
+              "rationale": "This concept provides insight into how prime numbers are distributed among natural numbers, which has implications for cryptography and analytic number theory."
+            },
+            {
+              "id": "n42",
+              "text": "Core Homework: Orders of Growth",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m4-l3",
+              "rationale": "Designed to reinforce students' understanding of function growth and hierarchy, assessing their ability to apply these concepts practically."
+            },
+            {
+              "id": "n43",
+              "text": "Challenge Homework: Orders of Growth Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m4-l3",
+              "rationale": "Offers advanced problems to challenge students' comprehension and encourage them to explore nuanced cases of function orders, deepening their analytical skills."
+            }
+          ],
+          "edges": [
+            {
+              "source": "n27",
+              "target": "n29",
+              "type": "elaborate",
+              "confidence": 1,
+              "rationale": "This relation exists to provide a deeper understanding of the factorial function beyond its basic definition. The integral definition offers an alternative perspective and extends the concept to non-integer values, which is useful for advanced mathematical discussions. This connection assumes students have some knowledge of calculus."
+            },
+            {
+              "source": "n28",
+              "target": "n30",
+              "type": "elaborate",
+              "confidence": 1,
+              "rationale": "This elaboration demonstrates a significant property of factorial growth, emphasizing its rapid increase compared to exponential functions. Understanding this relationship is critical for comparing growth rates in various applications. The limitation is that students need a foundation in both factorial and exponential functions to fully appreciate this concept."
+            },
+            {
+              "source": "n24",
+              "target": "n25",
+              "type": "relate",
+              "confidence": 1,
+              "rationale": "This relation is established to organize the understanding of growth rates by placing them in a structured manner. The hierarchy allows students to compare the magnitudes of different functions as they approach infinity. The assumption here is that students already have a conceptual grasp of different types of functions."
+            },
+            {
+              "source": "n34",
+              "target": "n33",
+              "type": "apply",
+              "confidence": 1,
+              "rationale": "Connecting these nodes helps students apply their understanding of multiplication algorithms to their computational efficiency. This application guides them to explore how different algorithms affect computation time, tying theoretical knowledge to practical implications in computer science. It assumes familiarity with basic algorithmic principles."
+            },
+            {
+              "source": "n37",
+              "target": "n36",
+              "type": "apply",
+              "confidence": 1,
+              "rationale": "This application involves using a physical example to illustrate the principles of error analysis. By connecting kinetic energy concepts with error induction, students can see real-world applications of theoretical principles, providing context and depth to their understanding of error analysis in physics. This assumes some prior knowledge of kinetic energy and error basics."
+            }
+          ]
+        },
+        {
+          "lesson_id": "m4-l4",
+          "title": "Chapter 1 Review & Exam",
+          "scale": "lesson",
+          "items": [
+            [
+              "About the Chapter 1 Exam Reading",
+              "reading",
+              "About the Chapter 1 Exam\n\nPlease begin preparing for the Chapter 1 closing exam!   The format of the exam is different from that of the practice homeworks: there is to be no collaboration, no notes, and no calculators.  As such, there are a few things you will need to memorize.  Yes, I know...I have trouble memorizing things too... but a little effort now will make the rest of your learning mathematics go much more smoothly.  I strongly recommend memorizing the following Taylor series (about zero):\n\ne^x [the exponential e-to-the-x]\n\nsin x [the sine]\n\ncos x [the cosine]\n\nln(1+x) [the natural log]\n\n1/(1\u2212x) [the geometric series]\n\nYou must also memorize the formula for the Taylor series of f(x) about x=a, as in lecture 6.\n\nI will not ask you to memorize the formulae for the arctangent or for the binomial expansion.  Should you need to use either of those in a problem, I will provide the Taylor series.\n\nYou will also want to make sure you know l'Hopital's rule, and the basics of limits. you will need to know the big-O notation at the level of the \"core\" problems in lesson 9.  Don't worry: it won't be too tough...\n\nThere are some things you do not need to know, such as the details of the \u03f5-\u03b4 definition of the limit.  Also, i won't ask you to compute derivatives of anything too unusual.\n\nMy goal in this exam is to test the basics, and motivate you to memorize a few things. Memorize your Taylor series, and keep your wits about you.\n\nThis is not a complete list of things you need to know for the exam, but it is a complete list of Taylor series that you need to memorize.\n\nBest wishes! Study hard and try your best!\n\nprof/g \n\nMark as completed\nLike\nDislike\nReport an issue"
+            ],
+            [
+              "Chapter 1: Functions - Exam",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/Pnx7K/chapter-1-functions-exam"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n44",
+              "text": "Exam Preparation",
+              "type": "explanation",
+              "difficulty": "low",
+              "lesson_id": "m4-l4"
+            },
+            {
+              "id": "n45",
+              "text": "Taylor Series About Zero",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l4",
+              "rationale": "Introducing Taylor Series About Zero at this point allows students to explore the approximation of functions using infinite series, a foundational concept in calculus that prepares them for more complex function analysis."
+            },
+            {
+              "id": "n46",
+              "text": "Exponential Function e^x",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "The Exponential Function e^x is introduced early on because its series expansion serves as a fundamental example of how Taylor Series work, thus enhancing understanding of convergence and behavior of series."
+            },
+            {
+              "id": "n47",
+              "text": "Sine Function",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "The Sine Function is used as an example for Taylor Series to illustrate periodic functions and to provide students with a familiar context for applying series expansions."
+            },
+            {
+              "id": "n48",
+              "text": "Cosine Function",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "Similar to the Sine Function, the Cosine Function is integrated into the study of Taylor Series to demonstrate symmetry and periodicity, enriching the understanding of function behavior."
+            },
+            {
+              "id": "n49",
+              "text": "Natural Logarithm ln(1+x)",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "The Natural Logarithm ln(1+x) is presented in the context of series to introduce students to logarithmic expansion, connecting algebraic functions with calculus concepts in a familiar form."
+            },
+            {
+              "id": "n50",
+              "text": "Geometric Series 1/(1\u2212x)",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "The Geometric Series 1/(1\u2212x) is introduced as it exemplifies a simple yet powerful convergence concept that underpins more complex series expansions found in calculus."
+            },
+            {
+              "id": "n51",
+              "text": "Taylor Series of f(x) About x=a",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l4",
+              "rationale": "Introducing Taylor Series of f(x) About x=a enables students to extend their understanding of series approximations beyond the origin, critical for handling real-world problems centered around arbitrary points."
+            },
+            {
+              "id": "n52",
+              "text": "Memorization of Series",
+              "type": "method",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "This method encourages memorization of key series expansions as a crucial skill for quickly identifying and applying series concepts in problem-solving expedited learning in subsequent sections."
+            },
+            {
+              "id": "n53",
+              "text": "Arctangent",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l4",
+              "rationale": "The Arctangent is included to expose students to the series representation for inverse trigonometric functions, broadening their knowledge of function approximations."
+            },
+            {
+              "id": "n54",
+              "text": "Binomial Expansion",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l4",
+              "rationale": "Binomial Expansion is fundamental in understanding polynomial expansion and is introduced to bridge basic algebraic concepts with advanced functions."
+            },
+            {
+              "id": "n55",
+              "text": "l'Hopital's Rule",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "L'Hopital's Rule is introduced after Basics of Limits to provide an advanced technique for solving indeterminate forms, reinforcing students' skills in evaluating limits."
+            },
+            {
+              "id": "n56",
+              "text": "Basics of Limits",
+              "type": "concept",
+              "difficulty": "low",
+              "lesson_id": "m4-l4",
+              "rationale": "Basics of Limits serves as the introductory concept, setting a foundation for understanding changes in functions' behavior, crucial for the entire calculus curriculum."
+            },
+            {
+              "id": "n57",
+              "text": "Big-O Notation",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "Big-O Notation is introduced to equip students with the language of algorithm complexity in mathematics, providing a bridge to computer science applications."
+            },
+            {
+              "id": "n58",
+              "text": "Core Problems in Lesson 9",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "Core Problems in Lesson 9 are designed to apply Big-O Notation in practical contexts, ensuring mastery of abstract concepts through practice."
+            },
+            {
+              "id": "n59",
+              "text": "\u03f5-\u03b4 Definition of the Limit",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m4-l4",
+              "rationale": "The \u03f5-\u03b4 Definition of the Limit is introduced to give students a rigorous mathematical underpinning for limit concepts, helping them understand theoretical foundations deeply."
+            },
+            {
+              "id": "n60",
+              "text": "Computation of Simple Derivatives",
+              "type": "method",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "Computation of Simple Derivatives is a method taught to build students' basic skills in calculus, essential for tackling more complex derivative applications later on."
+            },
+            {
+              "id": "n61",
+              "text": "Motivation to Memorize",
+              "type": "explanation",
+              "difficulty": "low",
+              "lesson_id": "m4-l4",
+              "rationale": "This explanation section aims to highlight the importance of memorization within the curriculum, underscoring why recalling series expansions quickly can aid problem-solving efficiency."
+            },
+            {
+              "id": "n62",
+              "text": "Chapter 1: Functions - Exam",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m4-l4",
+              "rationale": "This assessment evaluates students' grasp on foundational concepts of functions, ensuring readiness to progress into more intricate topics like Taylor Series."
+            }
+          ],
+          "edges": [
+            {
+              "source": "n3",
+              "target": "n45",
+              "type": "elaborate",
+              "confidence": 0.9
+            },
+            {
+              "source": "n52",
+              "target": "n45",
+              "type": "apply",
+              "confidence": 0.95,
+              "rationale": "Having a memorized grasp of the fundamental series expansions, such as those of e^x and sin x, helps in understanding and deriving Taylor Series expansions, starting with Taylor Series about zero, which simplifies these concepts."
+            },
+            {
+              "source": "n56",
+              "target": "n55",
+              "type": "prerequisite",
+              "confidence": 0.85,
+              "rationale": "Understanding basic limits is essential for applying l'Hopital's Rule effectively, as this rule is used to evaluate limits involving indeterminate forms."
+            },
+            {
+              "source": "n62",
+              "target": "n45",
+              "type": "assess",
+              "confidence": 0.9,
+              "rationale": "Assessing Taylor Series about zero ensures students can apply foundational series expansions and understand convergence properties, crucial for more complex topics later in calculus."
+            },
+            {
+              "source": "n52",
+              "target": "n51",
+              "type": "apply",
+              "confidence": 0.9,
+              "rationale": "Memorizing series helps apply and derive Taylor Series around any point x=a by quickly substituting and adjusting coefficients, facilitating the handling of local approximations."
+            },
+            {
+              "source": "n57",
+              "target": "n58",
+              "type": "elaborate",
+              "confidence": 0.8,
+              "rationale": "Big-O notation elaborates on concepts like algorithm efficiency, which is reflected in core problems, providing a deeper understanding of asymptotic behavior and limits."
+            },
+            {
+              "source": "n53",
+              "target": "n3",
+              "type": "relate",
+              "confidence": 0.75
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cross_scale_links": [
+    {
+      "lesson_node": "m2-l1",
+      "module_node": "m2",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m2-l2",
+      "module_node": "m2",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m3-l1",
+      "module_node": "m3",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m3-l2",
+      "module_node": "m3",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m3-l3",
+      "module_node": "m3",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m3-l4",
+      "module_node": "m3",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m4-l1",
+      "module_node": "m4",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m4-l2",
+      "module_node": "m4",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m4-l3",
+      "module_node": "m4",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m4-l4",
+      "module_node": "m4",
+      "relationship": "part_of"
+    }
+  ]
+}

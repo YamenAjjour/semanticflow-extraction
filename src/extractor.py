@@ -7,14 +7,19 @@ import yaml
 import os
 import re
 from argparse import ArgumentParser
+from collections import deque, defaultdict
 from playwright.sync_api import sync_playwright, TimeoutError
 
 from llm_client import LLMClient
+from rationale import extract_rationales
+from utils import topologically_sort_lesson_nodes
 
 
 def extract_modules(soup):
     """
     Extracts all h3 elements within divs that have data-testid inside a div with the id "modules".
+    :param soup: The BeautifulSoup object of the course page.
+    :return: A list of BeautifulSoup h3 elements representing the modules.
     """
     modules = []
     modules_container = soup.find("div", id="modules")
@@ -33,6 +38,8 @@ def extract_modules(soup):
 def clean_title(text):
     """
     Removes unwanted metadata from lesson item titles.
+    :param text: The original title text.
+    :return: The cleaned title.
     """
     # Remove "Due, [Date], [Time]" pattern
     text = re.sub(r"Due, [A-Za-z]{3} \d{1,2}, \d{1,2}:\d{2} [AP]M [A-Z]{3}", "", text)
@@ -42,7 +49,7 @@ def clean_title(text):
     text = re.sub(r". Duration:\s*\d+\s*minutes\s*\d+\s*min", "", text)
     text = re.sub(r"\d+ min", "", text)
     text = re.sub(r"Grade: --", "", text)
-    
+
     # Remove bullet points and extra whitespace
     text = text.replace("•", "")
     text = re.sub(r"\s+", " ", text).strip()
@@ -50,9 +57,22 @@ def clean_title(text):
         text = text[:-5].strip()
     return text
 
+def clean_content(content):
+    """
+    Removes zero-width spaces and non-breaking spaces from content.
+    :param content: The text content to clean.
+    :return: The cleaned text.
+    """
+    content = content.replace("\u200b", "").replace("\u00a0", " ")
+    return content
+
 def extract_page_content(page, url, item_type):
     """
     Visits the item URL and extracts content (transcript for video, text for reading).
+    :param page: The Playwright page object.
+    :param url: The URL of the item to visit.
+    :param item_type: The type of item ('video' or 'reading').
+    :return: The extracted content, or an error message if not found.
     """
     print(f"Visiting {item_type}: {url}")
     try:
@@ -64,7 +84,10 @@ def extract_page_content(page, url, item_type):
             # Looking for a div that likely contains the transcript
             transcript = page.query_selector("div[class*='rc-Transcript']")
             if transcript:
-                return transcript.inner_text()
+                text =  transcript.inner_text()
+                text = clean_content(text)
+                return text
+
             return "Transcript not found"
             
         elif item_type == "reading":
@@ -74,7 +97,9 @@ def extract_page_content(page, url, item_type):
             if not content:
                 content = page.query_selector("div[class*='CmlItem']")
             if content:
-                return content.inner_text()
+                text = content.inner_text()
+                text = clean_content(text)
+                return text
             return "Reading content not found"
             
     except TimeoutError:
@@ -88,16 +113,12 @@ def extract_page_content(page, url, item_type):
 def extract_lessons(page, url, modules):
     """
     Extracts lessons from each module by navigating to the module page.
-
-    Args:
-        page (playwright.sync_api.Page): The Playwright page object.
-        url (str): The base URL of the course.
-        modules (list): A list of module dictionaries containing module_id and title.
-
-    Returns:
-        tuple: A tuple containing:
-            - processed_modules (list): List of modules with extracted lessons.
-            - cross_scale_links (list): List of relationships between lessons and modules.
+    :param page: The Playwright page object.
+    :param url: The base URL of the course.
+    :param modules: A list of module dictionaries containing module_id and title.
+    :return: A tuple containing:
+        - processed_modules (list): List of modules with extracted lessons.
+        - cross_scale_links (list): List of relationships between lessons and modules.
     """
     processed_modules = []
     cross_scale_links = []
@@ -115,9 +136,12 @@ def extract_lessons(page, url, modules):
             "title": module_title,
             "lessons": []
         }
-        
+
         try:
-            page.goto(module_url, wait_until="networkidle", timeout=30000)
+            ## The following is a bug that the first lesson is always nto properly loaded
+            page.goto(module_url, wait_until="networkidle", timeout=42000)
+            page.goto(module_url, wait_until="networkidle", timeout=42000)
+
             content = page.content()
             soup = BeautifulSoup(content, 'html.parser')
             
@@ -156,6 +180,7 @@ def extract_lessons(page, url, modules):
                                 
                                 if is_video:
                                    content = extract_page_content(page, link, "video")
+
                                    items.append((cleaned_title, "video", content))
                                 elif is_quiz:
                                    items.append((cleaned_title, "quiz", link))
@@ -191,9 +216,14 @@ def extract_lessons(page, url, modules):
 def crawl_coursera_course(url, path=None, domain="unknown", cookies=None ):
     """
     Crawls a Coursera course URL to extract modules, lessons, and items.
+    :param url: The URL of the course home page.
+    :param path: Path to save the output JSON file.
+    :param domain: The domain of the course.
+    :param cookies: Cookies for authentication.
+    :return: The crawled course data.
     """
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False) # Set headless=False to see the browser
+        browser = p.chromium.launch(headless=True) # Set headless=False to see the browser
         context = browser.new_context()
 
         if cookies:
@@ -271,85 +301,132 @@ def crawl_coursera_course(url, path=None, domain="unknown", cookies=None ):
 
 
 def load_prompts():
+    """
+    Loads prompts from the data/prompts.json file.
+    :return: A dictionary containing the loaded prompts.
+    """
     prompts_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "prompts.json")
     if os.path.exists(prompts_path):
         with open(prompts_path, 'r') as f:
             return json.load(f)
     return {}
 
-
 def extract_semantic_flows(course_data, domain="unknown"):
+    """
+    Extracts semantic elements and their relationships from the crawled course data.
+    :param course_data: The crawled course data.
+    :param domain: The domain of the course.
+    :return: The course data with extracted semantic flows (nodes and edges).
+    """
     client = LLMClient()
     prompts = load_prompts()
-    
-    nodes = []
-    edges = []
-    node_id_counter = 1
-    node_map = {} # Map concept text to node ID
-
+    modules_titles = [module["title"] for module in course_data["modules"]]
+    relation_mapper = {"assess": "ASSESSES", "prerequisite": "PREREQUISITE_FOR", "elaborate": "ELABORATED_BY", "apply": "APPLIES_TO", "relate": "RELATES_TO"}
     for module in course_data["modules"]:
+        node_id_counter = 1
+        node_map = {} # Map concept text to node ID
         for lesson in module["lessons"]:
+            nodes = []
+            edges = []
+            assessment_literals = [item[0] for item in lesson["items"] if item[1] == "quiz"]
+            lesson_content = []
             for item_idx, item in enumerate(lesson["items"]):
                 if item[1] == "reading" or item[1] == "video":
                     content = item[2]
                     item_title = item[0]
                     item_type = item[1]
+                    lesson_content.append(f"--- {item_type.upper()}: {item_title} ---\n{content}")
+            
+            if not lesson_content:
+                continue
+                
+            full_lesson_text = "\n\n".join(lesson_content)
+            
+            # Extract concepts
+            elements_responses = client.prompt(
+                "gpt-4o",
+                prompts["extract_elements"], 
+                {"document": full_lesson_text, "domain": domain, "course": course_data.get("course_title", ""), "modules": modules_titles},
+                constraints=prompts["extract_elements"].get("constraints")
+            )
+            
+            elements = elements_responses.get("elements", []) if elements_responses else []
+            concept_literals = [e["element"] for e in elements if e.get("element") and e.get("type") == "concept"]
+            method_literals = [e["element"] for e in elements if e.get("element") and e.get("type") == "method"]
+            explanation_literals = [e["element"] for e in elements if e.get("element") and e.get("type") == "explanation"]
+            example_literals = [e["element"] for e in elements if e.get("element") and e.get("type") == "example"]
+            # Extract relations
+            relations_response = client.prompt(
+                "gpt-4o",
+                prompts["extract_relations"], 
+                {
+                    "document": full_lesson_text, "domain": domain, "concepts": ", ".join(concept_literals),
+                    "methods": ", ".join(method_literals), "examples": ", ".join(example_literals), "explanations": ", ".join(explanation_literals),
+                    "assessments": ", ".join(assessment_literals),
+                    "course": course_data.get("course_title", ""), "modules": modules_titles
+                },
+                constraints=prompts["extract_relations"].get("constraints")
+            )
+            
+            relations = relations_response.get("relations", []) if relations_response else []
+            
+            # Process concepts into nodes
+            for element_obj in elements:
+                element_text = element_obj.get("element")
+                difficulty = element_obj.get("difficulty")
+                type = element_obj.get("type")
+                if element_text and element_text not in node_map:
+                    node_id = f"n{node_id_counter}"
+                    node_id_counter += 1
+                    node_map[element_text] = node_id
                     
-                    # Extract concepts
-                    concepts_response = client.prompt(
-                        "gpt-4o",
-                        prompts["extract_concept"], 
-                        {"document": content, "domain": domain}
-                    )
+                    nodes.append({
+                        "id": node_id,
+                        "text": element_text,
+                        "type": type,
+                        "difficulty": difficulty,
+                        "lesson_id": lesson['lesson_id']
+                    })
+            
+            # Add quizzes as assessment nodes
+            for quiz_title in assessment_literals:
+                if quiz_title not in node_map:
+                    node_id = f"n{node_id_counter}"
+                    node_id_counter += 1
+                    node_map[quiz_title] = node_id
                     
-                    concepts = concepts_response.get("concepts", []) if concepts_response else []
-                    concept_literals = [c["concept"] for c in concepts if c.get("concept")]
+                    nodes.append({
+                        "id": node_id,
+                        "text": quiz_title,
+                        "type": "assessment",
+                        "difficulty": "medium", # Or determine based on quiz type
+                        "lesson_id": lesson['lesson_id']
+                    })
+            
+            # Process relations into edges
+            for relation in relations:
+                source_text = relation.get("source")
+                target_text = relation.get("target")
+                confidence = relation.get("confidence")
+                rel_type = relation.get("type")
+                if source_text in node_map and target_text in node_map:
+                    source_id = node_map[source_text]
+                    target_id = node_map[target_text]
                     
-                    # Extract prerequisites
-                    prerequisites_response = client.prompt(
-                        "gpt-4o",
-                        prompts["extract_prerequisites"], 
-                        {"document": content, "domain": domain, "concepts": ", ".join(concept_literals)}
-                    )
-                    
-                    prerequisites = prerequisites_response.get("prerequisites", []) if prerequisites_response else []
-                    
-                    # Process concepts into nodes
-                    for concept_obj in concepts:
-                        concept_text = concept_obj.get("concept")
-                        difficulty = concept_obj.get("difficulty")
-                        
-                        if concept_text and concept_text not in node_map:
-                            node_id = f"n{node_id_counter}"
-                            node_id_counter += 1
-                            node_map[concept_text] = node_id
-                            
-                            nodes.append({
-                                "id": node_id,
-                                "text": concept_text,
-                                "type": "Concept",
-                                "difficulty": difficulty,
-                                "lesson_item_id": f"{lesson['lesson_id']}-{item_type}-{item_title}-{item_idx}",
-                            })
-                    lesson["nodes"] = nodes
-                    # Process prerequisites into edges
-                    for prereq in prerequisites:
-                        source_text = prereq.get("source")
-                        target_text = prereq.get("target")
-                        confidence = prereq.get("confidence")
-                        
-                        if source_text in node_map and target_text in node_map:
-                            source_id = node_map[source_text]
-                            target_id = node_map[target_text]
-                            
-                            edges.append({
-                                "source": source_id,
-                                "target": target_id,
-                                "type": "PREREQUISITE_FOR",
-                                "confidence": confidence
-                            })
-                            
-                    lesson["edges"] = edges
+                    edges.append({
+                        "source": source_id,
+                        "target": target_id,
+                        "type": relation_mapper.get(rel_type, rel_type),
+                        "confidence": confidence
+                    })
+            
+            # Topologically sort the nodes
+            lesson["nodes"] = topologically_sort_lesson_nodes(nodes, edges)
+            lesson["edges"] = edges
+    
+    # Extract rationales
+    course_data = extract_rationales(course_data, domain=domain)
+
     return course_data
 if __name__ == "__main__":
     parser = ArgumentParser()

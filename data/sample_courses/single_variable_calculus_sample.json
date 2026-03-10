@@ -1,0 +1,526 @@
+{
+  "course_id": "single-variable-calculus",
+  "domain_type": "mathematics",
+  "course_title": "Calculus: Single Variable Part 1 - Functions",
+  "modules": [
+    {
+      "module_id": "m1",
+      "title": "Introduction",
+      "lessons": []
+    },
+    {
+      "module_id": "m2",
+      "title": "A Review of Functions",
+      "lessons": [
+        {
+          "lesson_id": "m2-l1",
+          "title": "Functions1 Overdue",
+          "scale": "lesson",
+          "items": [
+            [
+              "Completed Functions",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to calculus. I'm Professor Ghrist. We're about to begin lecture one on functions. Welcome to chapter one. Every story begins with a cast of characters. In this story of calculus, our characters are functions. And the plot revolves around how these functions interact with each other and what characterizes them from the local workings of their inner behaviors, to the global sweep of their asymptotics. \nPlay video starting at ::32 and follow transcript\n0:32\nThis lesson, and this course, begin with functions. Calculus is all about functions, and indeed, that is where this course begins. Now you're probably used to thinking about functions in terms of their graphs. The pair x with f(x) for a function f. One can also take a more mechanistic view, where x is considered as an input to f, and f(x) is considered as the output. Indeed, visualizing this as a machine is extremely helpful, where one feeds x into f and receives, as an output, f(x). With this in mind, certain terminology about functions becomes natural. \nPlay video starting at :1:27 and follow transcript\n1:27\nFor example, the domain of a function, f, consists of all possible inputs, all the things you might put in to the function. The range of a function, f, consists of all possible outputs, things you might receive from f. Now this is single variable calculus, and because of that, our domains and our ranges are going to be relatively simple. They are going to consist of either the real number line, or certain subintervals thereof. Certain operations on functions become critical. Perhaps the most important is that of composition. F composed with g. \nPlay video starting at :2:13 and follow transcript\n2:13\nThis is the function that takes as its input x, and returns its output, denoted f composed with g of x, and that is g(x) fed into the function, f. We say f(g(x)), and one can visualize this as chaining together the functions f and g in the proper order. g comes first, and then f. For example, if one considers the function, square root of one minus x squared, how can one decompose this into the composition of f and g? Well f, in this case, would be the function that is on the outside or that is done last. This is the square root function. g, that which comes first, is what is on the inside of the square root function. Namely g(x) equals 1- x squared. One additional important operation on functions is that of inverse. \nPlay video starting at :3:23 and follow transcript\n3:23\nThe inverse of a function, f, is denoted f with a superscript, -1. Don't let that fool you. That does not mean you take the reciprocal of f(x). Indeed, f inverse of x is defined as that function which takes as its input, x and returns as an output f inverse of x such that if one composes with f, one gets back the original value of x for all such x. And now, one could also run this in reverse. If you do f first, and then f inverse, one again obtains x. That means that, intuitively, f inverse is the machine that undoes whatever f does. \nPlay video starting at :4:23 and follow transcript\n4:23\nLet's look at a specific example where we take as f, the function x cubed. What would the inverse of this be? Well, it has to be a function that undoes whatever x cubed does. This is, as you may have guessed, x to the one-third power or the cube-root of x. Now, there are several ways to see why this is right. One is that in taking the inverse, we are reversing the role of the input and the output or, geometrically, we are flipping the graph of this function along the diagonal line where the input and the output are equal. Of course, we can also think in terms of what the inverse has to satisfy. \nPlay video starting at :5:16 and follow transcript\n5:16\nIf we do x cubed and then take its cubed root, we get x. Or the other way around. If we take the cube root of x and cube it, we get x. Certain classes of functions wind up being extremely important throughout calculus. Perhaps the simplest such class is that of the polynomials. That is, functions of the form a constant plus a constant times x plus a constant times x squared, all the way up to some finite degree. Constant times x to the n. \nPlay video starting at :5:53 and follow transcript\n5:53\nThat largest power of x is called the degree. There is a summation notation that makes writing out polynomials very simple. We use the Greek capital, sigma. And write a polynomial as the sum, sigma, as k goes from 0 to n of c sub k times x to the k. Here, the cks are coefficients, or constants. Another class of commonly observed functions are the rational functions. These are functions in the form P(x) over Q(x), where P and Q are polynomials. \nPlay video starting at :6:35 and follow transcript\n6:35\nSimple examples like 3x- 1 over x squared + x- 6 are very common throughout mathematics and its applications. Rational functions are very nice to work with. You do, however, have to be careful of what happens in the denominator when you try to plug in a value of x that evaluates the denominator to 0. Your function is not necessarily well defined at such a point. Other powers besides integer powers are important and prevalent. I'm guessing that you all know what x to the zero is. That is, of course, equal to one. \nPlay video starting at :7:20 and follow transcript\n7:20\nWhat's x to the minus one-half? Recall that fractional powers connote roots, and negative powers mean that you take the reciprocal. So that x to the negative one-half is 1 over the square root of x. Now what is the x to the 22-sevenths? Well, break this up into pieces. First we take x to the 22nd power. Then we take the seventh root of x. \nPlay video starting at :7:53 and follow transcript\n7:53\nLastly, what is x to the pi? Well, we're not going to answer that quite yet, but you may have a guess. And especially considering the fact that there are rational numbers that are very, very close to the irrational number pi. Trigonometric functions are extremely common and important. You should already know a bit about sine and cosine. Let's review perhaps the most important, the trigonometric identities. That is, cosine squared + sine squared = 1. \nPlay video starting at :8:31 and follow transcript\n8:31\nThere are several ways to interpret this. You've seen the interpretation involving a right triangle with hypotenuse equal to 1 and with angle set to theta. Then, in this case, the sine of theta is the length of the opposite edge to theta, and the cosine of theta is the length of the adjacent edge. If we think of those as x and y coordinates, respectively, then we see that there's a relationship between this trigonometric identity and the equation for the circle. x squared plus y squared equals one. And indeed, if we think of what happens when we move a point along a unit circle, rotating it by an angle theta from the positive x axis, then the x and y coordinates of that point on the unit circle are precisely, cosine and the sine, respectively. Other trigonometric functions are common and important. I'm sure you recall the tangent is the ratio of the sine to the cosine function, and its reciprocal, the cotangent function. \nPlay video starting at :9:55 and follow transcript\n9:55\nOne can also take reciprocals of cosine, obtaining the secant function, and of sine, obtaining the cosecant function, respectively. Now all of these that involve ratios wind up having vertical asymptotes in their graphs. That is, places where the function is undefined and the denominator goes to zero. The inverse of the trigonometric functions are very useful, but somewhat treacherous. You've got to be careful. Some students like to write the inverse of sine as sine with a -1 superscript. That can lead to some confusion thinking that it is the cosecant or the reciprocal of sine. \nPlay video starting at :10:46 and follow transcript\n10:46\nThat is unfortunate notation and I encourage you to use instead arcsine to denote the inverse of the sine function. The arcsine is that function which, when composed with sine, gives you the identity back. One of the things that you'll note about both the arcsine and the arccosine is that they have a restricted domain. The domain must be the closed interval from negative 1 to 1, because of course, sine and cosine can only take values in that interval. In contrast to this, the arctangent function does have an infinite domain. Its range, however, is limited between negative pi over two and pi over two. These are all functions that you're going to want to be familiar with for moving forward in calculus. \nPlay video starting at :11:47 and follow transcript\n11:47\nThe last class of functions that is of critical importance are the exponential functions. These are functions of the form, e to the x, e to the x being the canonical example of an exponential function. Its inverse is the logarithm, or more precisely, the natural logarithm, ln of x. If you've seen these functions before, you know, because they're inverses, that their graphs have this symmetry about the diagonal. So, for example, if e to the zero is one, as it must be, then log of one must be equal to zero, certainly. The question that is often unanswered in pre-calculus or even elementary calculus courses is, what is e and why is it so important in this exponential function? Well, one can say that e is that value whose logarithm is equal to one. \nPlay video starting at :12:58 and follow transcript\n12:58\nBut since we defined the natural logarithm in terms of base e, that's a bit of circular reasoning. How do we reason about e? Well certainly, e is a number. It is a particular location on the real number line. It has a decimal expansion, but being irrational, it is a little bit hard to remember all of it. That doesn't really answer the question of what is e? Why is it so important? \nPlay video starting at :13:31 and follow transcript\n13:31\nBefore we get to the answer of that, let's review some of the algebraic properties associated with the exponential function. I hope you remember that e to the x times e to the y is e to the x+y. The exponents add. And e to the x raised to the y power is e to the x times y. In your prior exposure to calculus, I'm sure that you've seen some of the differential and integral properties of this function. e to the x has this wonderful property that it is its own derivative. And of course that it is its own integral, at least up to a constant. These facts are easy to remember but maybe not so easy to fully comprehend. \nPlay video starting at :14:20 and follow transcript\n14:20\nThere is one last ingredient that we're going to need before we go deep into exploring what e to the x means. This is something called Euler's Formula. This is simple looking. It states that e to the i times x = cos of x + i times sine of x. This is a wonderful formula, whatever it means. What does it mean? What is this i that is in here? \nPlay video starting at :14:52 and follow transcript\n14:52\nI am sure that you have seen before the notation for the square root of negative 1, for the primal imaginary number, i. That is what is meant in Euler's Formula. It has the property, of course, that i squared is equal to -1. Well, this is a formula. It's a true statement. But what does it mean? Well, that is the subject for our next lesson. \nPlay video starting at :15:23 and follow transcript\n15:23\nAnd so we end with a mystery about the exponential function and what it means to exponentiate something that is not a real number. In our next lesson, we'll resolve this mystery, in part, by contemplating what the exponential function is. \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "How Grading Works Reading Resume . Click to resume",
+              "reading",
+              "How Grading Works\n\nEach \"core homework\" is worth 2% of your grade.  The \"functions exam\" is worth 82% of your grade.  To pass the course, pass each assignment at with a score of 60% or above. \n\nMark as completed\nLike\nDislike\nReport an issue"
+            ],
+            [
+              "Core Homework: Functions Overdue",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/Ixjrl/core-homework-functions"
+            ],
+            [
+              "Challenge Homework: Functions Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/jnMHp/challenge-homework-functions"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n1",
+              "text": "Calculus",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n2",
+              "text": "Functions",
+              "type": "concept",
+              "difficulty": "low",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n3",
+              "text": "Domain of a Function",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n4",
+              "text": "Range of a Function",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n5",
+              "text": "Composition",
+              "type": "method",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n6",
+              "text": "Explanation: For example, if one considers the function, square root of one minus x squared, how can one decompose this into the composition of f and g? Well f, in this case, would be the function that is on the outside or that is done last. This is the square root function. g, that which comes first, is what is on the inside of the square root function. Namely g(x) equals 1- x squared.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n7",
+              "text": "Inverse of a Function",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n8",
+              "text": "Explanation: The inverse of a function, f, is denoted f with a superscript, -1. Don't let that fool you. That does not mean you take the reciprocal of f(x). Indeed, f inverse of x is defined as that function which takes as its input, x and returns as an output f inverse of x such that if one composes with f, one gets back the original value of x for all such x. And now, one could also run this in reverse. If you do f first, and then f inverse, one again obtains x. That means that, intuitively, f inverse is the machine that undoes whatever f does.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n9",
+              "text": "Example: Let's look at a specific example where we take as f, the function x cubed. What would the inverse of this be? Well, it has to be a function that undoes whatever x cubed does. This is, as you may have guessed, x to the one-third power or the cube-root of x.",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n10",
+              "text": "Polynomials",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n11",
+              "text": "Explanation: That largest power of x is called the degree. There is a summation notation that makes writing out polynomials very simple. We use the Greek capital, sigma. And write a polynomial as the sum, sigma, as k goes from 0 to n of c sub k times x to the k. Here, the cks are coefficients, or constants.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n12",
+              "text": "Rational Functions",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n13",
+              "text": "Example: Simple examples like 3x- 1 over x squared + x- 6 are very common throughout mathematics and its applications. Rational functions are very nice to work with. You do, however, have to be careful of what happens in the denominator when you try to plug in a value of x that evaluates the denominator to 0. Your function is not necessarily well defined at such a point.",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n14",
+              "text": "Fractional Powers",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n15",
+              "text": "Explanation: Recall that fractional powers connote roots, and negative powers mean that you take the reciprocal. So that x to the negative one-half is 1 over the square root of x. Now what is the x to the 22-sevenths? Well, break this up into pieces. First we take x to the 22nd power. Then we take the seventh root of x.",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n16",
+              "text": "Trigonometric Functions",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n17",
+              "text": "Explanation: Let's review perhaps the most important, the trigonometric identities. That is, cosine squared + sine squared = 1.\nThere are several ways to interpret this. You've seen the interpretation involving a right triangle with hypotenuse equal to 1 and with angle set to theta. Then, in this case, the sine of theta is the length of the opposite edge to theta, and the cosine of theta is the length of the adjacent edge. If we think of those as x and y coordinates, respectively, then we see that there's a relationship between this trigonometric identity and the equation for the circle. x squared plus y squared equals one. And indeed, if we think of what happens when we move a point along a unit circle, rotating it by an angle theta from the positive x axis, then the x and y coordinates of that point on the unit circle are precisely, cosine and the sine, respectively. ",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n18",
+              "text": "Explanation: One can also take reciprocals of cosine, obtaining the secant function, and of sine, obtaining the cosecant function, respectively. Now all of these that involve ratios wind up having vertical asymptotes in their graphs. That is, places where the function is undefined and the denominator goes to zero.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n19",
+              "text": "Inverse Trigonometric Functions",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n20",
+              "text": "Explanation: The inverse of the trigonometric functions are very useful, but somewhat treacherous. You've got to be careful. Some students like to write the inverse of sine as sine with a -1 superscript. That can lead to some confusion thinking that it is the cosecant or the reciprocal of sine. \nThat is unfortunate notation and I encourage you to use instead arcsine to denote the inverse of the sine function. The arcsine is that function which, when composed with sine, gives you the identity back. One of the things that you'll note about both the arcsine and the arccosine is that they have a restricted domain. The domain must be the closed interval from negative 1 to 1, because of course, sine and cosine can only take values in that interval. In contrast to this, the arctangent function does have an infinite domain. Its range, however, is limited between negative pi over two and pi over two.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n21",
+              "text": "Exponential Functions",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n22",
+              "text": "Natural Logarithm",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n23",
+              "text": "Example: If you've seen these functions before, you know, because they're inverses, that their graphs have this symmetry about the diagonal. So, for example, if e to the zero is one, as it must be, then log of one must be equal to zero, certainly.",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n24",
+              "text": "Value of e",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n25",
+              "text": "Explanation: e is that value whose logarithm is equal to one.\nBut since we defined the natural logarithm in terms of base e, that's a bit of circular reasoning. How do we reason about e? Well certainly, e is a number. It is a particular location on the real number line. It has a decimal expansion, but being irrational, it is a little bit hard to remember all of it. That doesn't really answer the question of what is e? Why is it so important?",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n26",
+              "text": "Euler\u2019s Formula",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n27",
+              "text": "Example: I hope you remember that e to the x times e to the y is e to the x+y. The exponents add. And e to the x raised to the y power is e to the x times y. In your prior exposure to calculus, I'm sure that you've seen some of the differential and integral properties of this function. e to the x has this wonderful property that it is its own derivative. And of course that it is its own integral, at least up to a constant.",
+              "type": "example",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n28",
+              "text": "Imaginary Unit i",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n29",
+              "text": "Explanation: I am sure that you have seen before the notation for the square root of negative 1, for the primal imaginary number, i. That is what is meant in Euler's Formula. It has the property, of course, that i squared is equal to -1. Well, this is a formula. It's a true statement. But what does it mean? Well, that is the subject for our next lesson.",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n30",
+              "text": "Core Homework: Functions Overdue",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            },
+            {
+              "id": "n31",
+              "text": "Challenge Homework: Functions Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m2-l1"
+            }
+          ],
+          "edges": [
+            {
+              "source": "n1",
+              "target": "n2",
+              "type": "prerequisite",
+              "confidence": 0.95
+            },
+            {
+              "source": "n5",
+              "target": "n2",
+              "type": "apply",
+              "confidence": 0.9
+            },
+            {
+              "source": "n2",
+              "target": "n5",
+              "type": "relate",
+              "confidence": 0.9
+            },
+            {
+              "source": "n6",
+              "target": "n5",
+              "type": "elaborate",
+              "confidence": 0.8
+            },
+            {
+              "source": "n9",
+              "target": "n7",
+              "type": "elaborate",
+              "confidence": 0.85
+            },
+            {
+              "source": "n13",
+              "target": "n12",
+              "type": "elaborate",
+              "confidence": 0.8
+            },
+            {
+              "source": "n29",
+              "target": "n26",
+              "type": "elaborate",
+              "confidence": 0.85
+            },
+            {
+              "source": "n30",
+              "target": "n2",
+              "type": "assess",
+              "confidence": 0.9
+            },
+            {
+              "source": "n30",
+              "target": "n5",
+              "type": "assess",
+              "confidence": 0.8
+            },
+            {
+              "source": "n31",
+              "target": "n2",
+              "type": "assess",
+              "confidence": 0.9
+            },
+            {
+              "source": "n31",
+              "target": "n5",
+              "type": "assess",
+              "confidence": 0.8
+            }
+          ]
+        },
+        {
+          "lesson_id": "m2-l2",
+          "title": "Exponentials",
+          "scale": "lesson",
+          "items": [
+            [
+              "Exponentials",
+              "video",
+              null
+            ],
+            [
+              "BONUS!",
+              "video",
+              "You may navigate through the transcript using tab. To save a note for a section of text press CTRL + S. To expand your selection you may use CTRL + arrow key. You may contract your selection using shift + CTRL + arrow key. For screen readers that are incompatible with using arrow keys for shortcuts, you can replace them with the H J K L keys. Some screen readers may require using CTRL in conjunction with the alt key\n\nPlay video starting at :: and follow transcript\n0:00\nWelcome to Calculus. I'm Professor Greist, and we're about to  begin lecture two, bonus material. In our main lesson, we saw a definition  for e to the x, in terms of a series, and from that and a little bit of help from  Euler's formula. We derived expressions for sin of x and  for cosine of x. These can seem a little mysterious,  difficult to work with at first but if you think of these as long polynomials.  Polynomials of unbounded degree. It can make it easier both to work with  them and to understand what the series mean.  Let's consider the case of e to the x and see what happens when we cut off the  series at some finite polynomial term, since polynomials are so easy to work  with. If we stop after the first term.  Well, it's a, a bit too simple to conclude much.  But if we keep going, looking at 1 plus x.  Or 1 plus x plus x squared over 2 factorial.  Or continuing to include the cubic term, as well.  Then we see that we're getting closer and closer.  Two, what the graph of e to the x looks like.  Especially if we zoom in very very close to what's happening near the origin.  And does the same thing work with the other series that we've looked at?  Well, let's consider cosine of x. We know that the terms in the series  expansion go, like, one. And then 1 minus x squared over 2.  Then, 1 minus x squared over 2, plus x to the fourth over 4 factorial.  And what we see is that we're getting closer and closer to what cosine is doing  the more terms that we add. In this series, the better an  approximation to cosine we obtain. It will come as no surprise to you that  the same thing is true of sine, that when we look at the linear term and then the  cubic term and then the fifth order term. That, although we're not getting exactly  sin, we're getting something that is closer and closer.  And this will keep on going. The more terms that we add, the better  these polynomial approximations become to the true function.  At this point, a few remarks are in order.  First of all, these finite polynomial approximations work best near zero.  If you want to approximate e to the x, when x is very, very large, then you're  going to need quite a few terms. In order to get a good approximation.  Now that's okay, e to the x really is this infinite series, but it's precisely  because you include all of the terms. And second of all, sometimes you will see  the term MacLaurin series used to apply to infinite series of this form.  I choose to use the notation Taylor series exclusively, and in a few lessons,  we'll see exactly what type of Taylor series we're talking about, when we write  out things in this form. Lastly, and most importantly, at this  point in the course, you may be ready to press the panic button.  We have begun with material that is usually reserved for the end of a second  semester calculus course. Relax.  Don't panic. You'll see in just a few short lessons  what the payoff is for beginning a calculus course with infinite series.  Stick with it, learn the mechanics and know that a deeper understanding is  coming. This is not an easy course and it's a  long one. We have a lot of time left together.  Don't panic. Work at it and you'll make it to the end  with a deeper understanding of calculus.  \n: Added to Selection. Press [CTRL + S] to save as a note"
+            ],
+            [
+              "Core Homework: The Exponential",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/fXvQ8/core-homework-the-exponential"
+            ],
+            [
+              "Challenge Homework: The Exponential Practice Assignment",
+              "quiz",
+              "https://www.coursera.org/learn/single-variable-calculus/assignment-submission/YlK9h/challenge-homework-the-exponential"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "n32",
+              "text": "Definition for e to the x in Terms of a Series",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n33",
+              "text": "Euler's Formula",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n34",
+              "text": "Expressions for sin of x and Cosine of x",
+              "type": "explanation",
+              "difficulty": "high",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n35",
+              "text": "Polynomials of Unbounded Degree",
+              "type": "explanation",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n36",
+              "text": "Polynomial Approximations",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n37",
+              "text": "Series Expansion",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n38",
+              "text": "Graph of e to the x",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n39",
+              "text": "Cut Off the Series at Some Finite Polynomial Term",
+              "type": "method",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n40",
+              "text": "Series Approximation for Cosine of x",
+              "type": "example",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n41",
+              "text": "MacLaurin Series",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n42",
+              "text": "Taylor Series",
+              "type": "concept",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n43",
+              "text": "Press the Panic Button",
+              "type": "concept",
+              "difficulty": "low",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n44",
+              "text": "Infinite Series",
+              "type": "concept",
+              "difficulty": "high",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n45",
+              "text": "Core Homework: The Exponential",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            },
+            {
+              "id": "n46",
+              "text": "Challenge Homework: The Exponential Practice Assignment",
+              "type": "assessment",
+              "difficulty": "medium",
+              "lesson_id": "m2-l2"
+            }
+          ],
+          "edges": [
+            {
+              "source": "n39",
+              "target": "n36",
+              "type": "apply",
+              "confidence": 0.85
+            },
+            {
+              "source": "n35",
+              "target": "n36",
+              "type": "elaborate",
+              "confidence": 0.8
+            },
+            {
+              "source": "n37",
+              "target": "n42",
+              "type": "relate",
+              "confidence": 0.7
+            },
+            {
+              "source": "n33",
+              "target": "n34",
+              "type": "prerequisite",
+              "confidence": 0.85
+            },
+            {
+              "source": "n37",
+              "target": "n34",
+              "type": "prerequisite",
+              "confidence": 0.85
+            },
+            {
+              "source": "n44",
+              "target": "n38",
+              "type": "relate",
+              "confidence": 0.65
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "module_id": "m3",
+      "title": "Taylor Series",
+      "lessons": []
+    },
+    {
+      "module_id": "m4",
+      "title": "Limits and Asymptotics",
+      "lessons": []
+    }
+  ],
+  "cross_scale_links": [
+    {
+      "lesson_node": "m2-l1",
+      "module_node": "m2",
+      "relationship": "part_of"
+    },
+    {
+      "lesson_node": "m2-l2",
+      "module_node": "m2",
+      "relationship": "part_of"
+    }
+  ]
+}

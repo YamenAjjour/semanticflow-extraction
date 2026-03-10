@@ -1,57 +1,94 @@
 {
-  "extract_concept": {
-    "system_prompt" : [
+  "extract_elements": {
+    "system_prompt": [
       "You are a teacher in the following domain {domain}."
     ],
-    "user_prompt" : [
-      "Extract the main concepts from the following document that the student is expected to learn.",
-      "A concept is a single entity that is ideally a noun phrase or that stands on its own as an object of study",
-      "In addition to the concept, classify the difficulty of the concept into low, medium, and high.",
-      "Return the concepts in a title case capitalized style in a singular form.",
+    "user_prompt": [
+
+      "Extract the concepts, methods, as well as explanations and examples from from the following document.",
+      "A concept is a single abstract entity that is ideally a noun phrase or that stands on its own as an object of study.",
+      "A method is a systematic repeatable procedure to collect, measure, predict or prove data in the domain.",
+      "An example is a concreate instance or case study that helps understand a concept or a method ",
+      "An explanation is a detailed reason that describe or define a concept or a method.",
+      "Explanations and examples can span multiple sentences or paragraphs.",
+      "Return the elements (concepts, methods, explanations, and examples) as they appear in the document without rephrasing them or prefillers.",
+      "Except for  concepts and methods, which you must return in a title case capitalized style (except functional words such as the, a, an propositions) and in a singular form.",
+      "For each element, return one of the following four types: concept, method, example, or explanation.",
+      "In addition to the element and its label, classify the difficulty of the concept into low, medium, and high.",
       "Document: {document}"
     ],
     "constraints": {
       "type": "object",
       "properties": {
-        "concepts": {
+        "elements": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "concept": {
+              "element": {
                 "type": "string"
               },
               "difficulty": {
                 "type": "string",
-                "enum": ["low", "medium", "high"]
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "explanation",
+                  "example",
+                  "concept",
+                  "method"
+                ]
               }
             },
-            "required": ["concept", "difficulty"],
+            "required": [
+              "element",
+              "difficulty",
+              "type"
+            ],
             "additionalProperties": false
           }
         }
       },
-      "required": ["concepts"],
+      "required": [
+        "elements"
+      ],
       "additionalProperties": false
     }
   },
-
-  "extract_prerequisites":{
-    "system_prompt" : [
+  "extract_relations": {
+    "system_prompt": [
       "You are a teacher in the following domain {domain}."
     ],
-    "user_prompt" : [
-      "Extract the main prerequisite relations between the following concepts as implied in the following document.",
-      "A prerequisite is a directed relation that goes from concept a to concept b that implies",
-      "The student has to learn concept a before learning concept b.",
+    "user_prompt": [
+      "Extract the following relations between a pair of the following concepts, methods, explanations, examples, and assessments from the following lesson item (video transcript or reading).",
+      "Classify the type of the relation between two elements into prerequisite, elaborate, apply, assess, or relate",
+      "A prerequisite goes from a source concept to a target concept and implies that",
+      "The student has to learn the source concept before learning the target concept .",
+      "An elaborate relation goes from a source concept to a target example or explanation and implies",
+      "that the example or elaboration explains in details the concept",
+      "An apply relation goes from a source method to a target concept and implies",
+      "that the source method is used for the concept",
+      "An assess relations goes from a source assessment to a target method or a concept to test the understanding of the student of the target method or concept",
+      "A relate relations goes from a source concept or method to a target concept and indicates that the source concept or method is topically relevant to the target concept",
       "Indicate the model's confidence with a float value between 0 and 1, where 1 indicates high confidence and 0 indicates no confidence.",
+      "Output the source element, target element, the relation type, and the confidence as json object",
       "Document: {document}",
-      "Concpets: {concepts}"
+      "Concepts: {concepts}",
+      "Methods: {methods}",
+      "Explanations: {explanations}",
+      "Examples: {examples}",
+      "Assessments: {assessments}"
     ],
     "constraints": {
       "type": "object",
       "properties": {
-        "prerequisites": {
+        "relations": {
           "type": "array",
           "items": {
             "type": "object",
@@ -62,16 +99,135 @@
               "target": {
                 "type": "string"
               },
+              "type": {
+                "type": "string",
+                "enum": ["prerequisite", "elaborate", "apply", "assess", "relate"]
+              },
               "confidence": {
                 "type": "number"
               }
             },
-            "required": ["source", "target", "confidence"],
+            "required": [
+              "source",
+              "target",
+              "type",
+              "confidence"
+            ],
             "additionalProperties": false
           }
         }
       },
-      "required": ["prerequisites"],
+      "required": [
+        "relations"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "extract_elements_rationales": {
+    "system_prompt": [
+      "You are a teacher in the following domain {domain}"
+    ],
+    "user_prompt": [
+      "You are organizing a new MOOC course {course} with the modules {modules}",
+      "The following is a graph of the course concepts, assessments, and methods and the relations between these elements.",
+      "Extract key concepts, assessments, and methods from the following graph",
+      "and generate a the rationale (pedagogical reason) for why each key concept or metho is introduced in this position.",
+      "the rationale is one or two sentences that should be specific to the concept and consistent with the terms used in the graph and the course.",
+      "possible aspects to focuse on are why is an assessment,method, or concept introduced at this point or why is this level of details appropriate here",
+      "elements: {elements}",
+      "relations: {relations}"
+    ],
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "rationales": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "element": {
+                "type": "string"
+              },
+              "rationale": {
+                "type": "string"
+              },
+              "type": {
+                  "type": "string",
+                  "enum": [
+                    "explanation",
+                    "example",
+                    "concept",
+                    "method"
+                  ]
+
+              }
+            },
+            "required": [
+              "element",
+              "rationale",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "rationales"
+      ],
+      "additionalProperties": false
+    }
+  },
+
+  "extract_relation_rationales":
+  {
+    "system_prompt": [
+      "You are a teacher in the following domain {domain}."
+    ],
+    "user_prompt": [
+      "You are organizing a new MOOC course {course} with the modules {modules}",
+      "The following is an educational knowledge graph. Your task is reason about how are the nodes in the graph are connected in this way and provide pedagogical reasons for this.",
+      "For each relation, provide a reason for why this relation exists in this order and what limitations and assumptions affect this flow. For assessment relations also provide explanations for",
+      "the rationale is one or two sentences that should be specific to the concept and consistent with the terms used in the graph and the course.",
+      "why to assess at this point. Output the source and target element as well as the relation type and the rationale.",
+      "elements: {elements}",
+      "relations: {relations}"
+    ],
+
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "rationales": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              },
+              "rationale": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["prerequisite", "elaborate", "apply", "assess", "relate"]
+              }
+            },
+            "required": [
+              "source",
+              "target",
+              "rationale",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "rationales"
+      ],
       "additionalProperties": false
     }
   }

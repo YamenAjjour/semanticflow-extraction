@@ -1,2 +1,0 @@
-model,prompt,input_token_count,output_token_count,price,arguments
-gpt-4o,Say hello in French....,11,6,8.75e-05,{'language': 'French'}

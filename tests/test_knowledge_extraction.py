@@ -30,33 +30,33 @@ class TestConceptExtraction(unittest.TestCase):
         # Given the constraints, I will patch LLMClient in the extractor module.
 
     def test_specific_concepts_existence(self):
-        # result = extract_semantic_flows(self.course_data, domain="mathematics")
-        #
-        # # Check for concepts in "Functions" lesson (m2-l1)
-        # # Note: The sample json structure might need to be traversed to find the specific lesson
-        # functions_lesson = None
-        # exponentials_lesson = None
-        #
-        # for module in result["modules"]:
-        #     for lesson in module["lessons"]:
-        #         if lesson["title"] == "Functions":
-        #             functions_lesson = lesson
-        #         elif lesson["title"] == "Exponentials":
-        #             exponentials_lesson = lesson
-        #
-        # self.assertIsNotNone(functions_lesson)
-        # self.assertIsNotNone(exponentials_lesson)
-        #
-        # # Check concepts in Functions lesson
-        # func_concepts = [n["text"] for n in functions_lesson["nodes"]]
-        # self.assertIn("Inverse of a function", func_concepts)
-        # self.assertIn("Exponential functions", func_concepts)
-        # self.assertIn("Euler's Formula", func_concepts)
-        #
-        # # Check concepts in Exponentials lesson
-        # exp_concepts = [n["text"] for n in exponentials_lesson["nodes"]]
-        # self.assertIn("Exponential functions", exp_concepts)
-        # self.assertIn("Euler's formula", exp_concepts)
+        result = extract_semantic_flows(self.course_data, domain="mathematics")
+
+        # Check for concepts in "Functions" lesson (m2-l1)
+        # Note: The sample json structure might need to be traversed to find the specific lesson
+        functions_lesson = None
+        exponentials_lesson = None
+
+        for module in result["modules"]:
+            for lesson in module["lessons"]:
+                if lesson["title"] == "Functions":
+                    functions_lesson = lesson
+                elif lesson["title"] == "Exponentials":
+                    exponentials_lesson = lesson
+
+        self.assertIsNotNone(functions_lesson)
+        self.assertIsNotNone(exponentials_lesson)
+
+        # Check concepts in Functions lesson
+        func_elements = [n["text"] for n in functions_lesson["nodes"]]
+        self.assertIn("Inverse of a function", func_elements)
+        self.assertIn("Exponential functions", func_elements)
+        self.assertIn("Euler's Formula", func_elements)
+
+        # Check concepts in Exponentials lesson
+        exp_concepts = [n["text"] for n in exponentials_lesson["nodes"]]
+        self.assertIn("Exponential functions", exp_concepts)
+        self.assertIn("Euler's formula", exp_concepts)
         self.assertTrue(True)
     def test_dependency_relation(self):
 

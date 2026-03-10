@@ -3,3 +3,5 @@ cookies: "__204u=6682888082-1748548099411; _ga_7GZ59JSFWQ=GS2.1.s1772810647$o215
 model_pricing : {
 "gpt-4o": {"input": 2.50, "output": 10.00},
 }
+
+cache : "data/cache"
